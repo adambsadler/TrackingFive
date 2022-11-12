@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CDArmor" representedClassName="CDArmor" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rules" optional="YES" attributeType="String"/>
+        <relationship name="inBackpack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="armorInBackpack" inverseEntity="CDWarband"/>
+        <relationship name="inStash" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="stashedArmor" inverseEntity="CDWarband"/>
+        <relationship name="ofFollower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDFollower" inverseName="armor" inverseEntity="CDFollower"/>
+        <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDHero" inverseName="armor" inverseEntity="CDHero"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="CDContract" representedClassName="CDContract" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="reward" optional="YES" attributeType="String"/>
+        <attribute name="rules" optional="YES" attributeType="String"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="contracts" inverseEntity="CDWarband"/>
+    </entity>
+    <entity name="CDEquipmentItem" representedClassName="CDEquipmentItem" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rules" optional="YES" attributeType="String"/>
+        <relationship name="inBackpack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="itemsInBackpack" inverseEntity="CDWarband"/>
+        <relationship name="inStash" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="stashedItems" inverseEntity="CDWarband"/>
+        <relationship name="ofFollower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDFollower" inverseName="items" inverseEntity="CDFollower"/>
+        <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDHero" inverseName="items" inverseEntity="CDHero"/>
+    </entity>
+    <entity name="CDFollower" representedClassName="CDFollower" syncable="YES" codeGenerationType="class">
+        <attribute name="agility" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="casting" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="combatSkill" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dashSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="luck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="toughness" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="will" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="armor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDArmor" inverseName="ofFollower" inverseEntity="CDArmor"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDEquipmentItem" inverseName="ofFollower" inverseEntity="CDEquipmentItem"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="followers" inverseEntity="CDWarband"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDSkill" inverseName="ofFollower" inverseEntity="CDSkill"/>
+        <relationship name="weapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDWeapon" inverseName="ofFollower" inverseEntity="CDWeapon"/>
+    </entity>
+    <entity name="CDFriend" representedClassName="CDFriend" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="friends" inverseEntity="CDWarband"/>
+    </entity>
+    <entity name="CDHero" representedClassName="CDHero" syncable="YES" codeGenerationType="class">
+        <attribute name="agility" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="casting" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="combatSkill" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dashSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="experience" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="luck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="origin" optional="YES" attributeType="String"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="toughness" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="will" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="armor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDArmor" inverseName="ofHero" inverseEntity="CDArmor"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDEquipmentItem" inverseName="ofHero" inverseEntity="CDEquipmentItem"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="heroes" inverseEntity="CDWarband"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDSkill" inverseName="ofHero" inverseEntity="CDSkill"/>
+        <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDSpell" inverseName="ofHero" inverseEntity="CDSpell"/>
+        <relationship name="weapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDWeapon" inverseName="ofHero" inverseEntity="CDWeapon"/>
+    </entity>
+    <entity name="CDNote" representedClassName="CDNote" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="notes" inverseEntity="CDWarband"/>
+    </entity>
+    <entity name="CDQuest" representedClassName="CDQuest" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="rules" optional="YES" attributeType="String"/>
+        <attribute name="task" optional="YES" attributeType="String"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="quest" inverseEntity="CDWarband"/>
+    </entity>
+    <entity name="CDSkill" representedClassName="CDSkill" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rules" optional="YES" attributeType="String"/>
+        <relationship name="ofFollower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDFollower" inverseName="skills" inverseEntity="CDFollower"/>
+        <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDHero" inverseName="skills" inverseEntity="CDHero"/>
+    </entity>
+    <entity name="CDSpell" representedClassName="CDSpell" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="incantation" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rules" optional="YES" attributeType="String"/>
+        <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDHero" inverseName="spells" inverseEntity="CDHero"/>
+    </entity>
+    <entity name="CDThreat" representedClassName="CDThreat" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="threats" inverseEntity="CDWarband"/>
+    </entity>
+    <entity name="CDWarband" representedClassName="CDWarband" syncable="YES" codeGenerationType="class">
+        <attribute name="adventurePoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentLocation" optional="YES" attributeType="String"/>
+        <attribute name="goldMarks" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="region" optional="YES" attributeType="String"/>
+        <attribute name="storyPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="armorInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDArmor" inverseName="inBackpack" inverseEntity="CDArmor"/>
+        <relationship name="contracts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDContract" inverseName="ofWarband" inverseEntity="CDContract"/>
+        <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDFollower" inverseName="ofWarband" inverseEntity="CDFollower"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDFriend" inverseName="ofWarband" inverseEntity="CDFriend"/>
+        <relationship name="heroes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDHero" inverseName="ofWarband" inverseEntity="CDHero"/>
+        <relationship name="itemsInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDEquipmentItem" inverseName="inBackpack" inverseEntity="CDEquipmentItem"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDNote" inverseName="ofWarband" inverseEntity="CDNote"/>
+        <relationship name="quest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuest" inverseName="ofWarband" inverseEntity="CDQuest"/>
+        <relationship name="stashedArmor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDArmor" inverseName="inStash" inverseEntity="CDArmor"/>
+        <relationship name="stashedItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDEquipmentItem" inverseName="inStash" inverseEntity="CDEquipmentItem"/>
+        <relationship name="stashedWeapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDWeapon" inverseName="inStash" inverseEntity="CDWeapon"/>
+        <relationship name="threats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDThreat" inverseName="ofWarband" inverseEntity="CDThreat"/>
+        <relationship name="weaponsInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDWeapon" inverseName="inBackpack" inverseEntity="CDWeapon"/>
+    </entity>
+    <entity name="CDWeapon" representedClassName="CDWeapon" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="overcomeArmor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="overcomeToughness" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rules" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="inBackpack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="weaponsInBackpack" inverseEntity="CDWarband"/>
+        <relationship name="inStash" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWarband" inverseName="stashedWeapons" inverseEntity="CDWarband"/>
+        <relationship name="ofFollower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDFollower" inverseName="weapons" inverseEntity="CDFollower"/>
+        <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDHero" inverseName="weapons" inverseEntity="CDHero"/>
+    </entity>
 </model>
