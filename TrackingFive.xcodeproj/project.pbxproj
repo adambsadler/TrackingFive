@@ -13,18 +13,10 @@
 		F971DF38291FE785002418A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F971DF37291FE785002418A0 /* Preview Assets.xcassets */; };
 		F971DF3A291FE785002418A0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF39291FE785002418A0 /* Persistence.swift */; };
 		F971DF3D291FE785002418A0 /* TrackingFive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F971DF3B291FE785002418A0 /* TrackingFive.xcdatamodeld */; };
-		F971DF46291FE8D9002418A0 /* Warband.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF45291FE8D9002418A0 /* Warband.swift */; };
-		F971DF48291FE996002418A0 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF47291FE996002418A0 /* Hero.swift */; };
 		F971DF4A291FE9E5002418A0 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF49291FE9E5002418A0 /* Origin.swift */; };
-		F971DF4C291FEBCC002418A0 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF4B291FEBCC002418A0 /* Skill.swift */; };
-		F971DF4E291FEC7D002418A0 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF4D291FEC7D002418A0 /* Spell.swift */; };
-		F971DF52291FEED1002418A0 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF51291FEED1002418A0 /* Weapon.swift */; };
-		F971DF54291FF210002418A0 /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF53291FF210002418A0 /* Armor.swift */; };
-		F971DF56291FF335002418A0 /* EquipmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF55291FF335002418A0 /* EquipmentItem.swift */; };
-		F971DF58291FF59D002418A0 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF57291FF59D002418A0 /* Follower.swift */; };
-		F971DF5A291FF730002418A0 /* Threat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF59291FF730002418A0 /* Threat.swift */; };
-		F971DF5C291FF7A6002418A0 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF5B291FF7A6002418A0 /* Quest.swift */; };
-		F971DF5E291FF7F8002418A0 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF5D291FF7F8002418A0 /* Contract.swift */; };
+		F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF60292025B0002418A0 /* WarbandListView.swift */; };
+		F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6329202951002418A0 /* WarbandViewModel.swift */; };
+		F971DF6929214C50002418A0 /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6829214C50002418A0 /* WeaponType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,18 +28,10 @@
 		F971DF39291FE785002418A0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F971DF3C291FE785002418A0 /* TrackingFive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackingFive.xcdatamodel; sourceTree = "<group>"; };
 		F971DF3E291FE785002418A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F971DF45291FE8D9002418A0 /* Warband.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warband.swift; sourceTree = "<group>"; };
-		F971DF47291FE996002418A0 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		F971DF49291FE9E5002418A0 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
-		F971DF4B291FEBCC002418A0 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
-		F971DF4D291FEC7D002418A0 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
-		F971DF51291FEED1002418A0 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		F971DF53291FF210002418A0 /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
-		F971DF55291FF335002418A0 /* EquipmentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentItem.swift; sourceTree = "<group>"; };
-		F971DF57291FF59D002418A0 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
-		F971DF59291FF730002418A0 /* Threat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threat.swift; sourceTree = "<group>"; };
-		F971DF5B291FF7A6002418A0 /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
-		F971DF5D291FF7F8002418A0 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		F971DF60292025B0002418A0 /* WarbandListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbandListView.swift; sourceTree = "<group>"; };
+		F971DF6329202951002418A0 /* WarbandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbandViewModel.swift; sourceTree = "<group>"; };
+		F971DF6829214C50002418A0 /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +64,13 @@
 		F971DF2F291FE784002418A0 /* TrackingFive */ = {
 			isa = PBXGroup;
 			children = (
+				F971DF6529204076002418A0 /* Core Data */,
+				F971DF622920293F002418A0 /* ViewModels */,
+				F971DF5F29202591002418A0 /* Views */,
 				F971DF44291FE8BB002418A0 /* Models */,
 				F971DF30291FE784002418A0 /* TrackingFiveApp.swift */,
 				F971DF32291FE784002418A0 /* ContentView.swift */,
 				F971DF34291FE785002418A0 /* Assets.xcassets */,
-				F971DF39291FE785002418A0 /* Persistence.swift */,
 				F971DF3E291FE785002418A0 /* Info.plist */,
 				F971DF3B291FE785002418A0 /* TrackingFive.xcdatamodeld */,
 				F971DF36291FE785002418A0 /* Preview Content */,
@@ -103,20 +89,34 @@
 		F971DF44291FE8BB002418A0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F971DF45291FE8D9002418A0 /* Warband.swift */,
-				F971DF47291FE996002418A0 /* Hero.swift */,
 				F971DF49291FE9E5002418A0 /* Origin.swift */,
-				F971DF4B291FEBCC002418A0 /* Skill.swift */,
-				F971DF4D291FEC7D002418A0 /* Spell.swift */,
-				F971DF51291FEED1002418A0 /* Weapon.swift */,
-				F971DF53291FF210002418A0 /* Armor.swift */,
-				F971DF55291FF335002418A0 /* EquipmentItem.swift */,
-				F971DF57291FF59D002418A0 /* Follower.swift */,
-				F971DF59291FF730002418A0 /* Threat.swift */,
-				F971DF5B291FF7A6002418A0 /* Quest.swift */,
-				F971DF5D291FF7F8002418A0 /* Contract.swift */,
+				F971DF6829214C50002418A0 /* WeaponType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F971DF5F29202591002418A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F971DF60292025B0002418A0 /* WarbandListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F971DF622920293F002418A0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F971DF6329202951002418A0 /* WarbandViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F971DF6529204076002418A0 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				F971DF39291FE785002418A0 /* Persistence.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,22 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F971DF46291FE8D9002418A0 /* Warband.swift in Sources */,
-				F971DF5A291FF730002418A0 /* Threat.swift in Sources */,
 				F971DF3A291FE785002418A0 /* Persistence.swift in Sources */,
+				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
+				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
-				F971DF54291FF210002418A0 /* Armor.swift in Sources */,
-				F971DF56291FF335002418A0 /* EquipmentItem.swift in Sources */,
 				F971DF3D291FE785002418A0 /* TrackingFive.xcdatamodeld in Sources */,
-				F971DF5E291FF7F8002418A0 /* Contract.swift in Sources */,
 				F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */,
-				F971DF58291FF59D002418A0 /* Follower.swift in Sources */,
-				F971DF52291FEED1002418A0 /* Weapon.swift in Sources */,
-				F971DF5C291FF7A6002418A0 /* Quest.swift in Sources */,
-				F971DF4C291FEBCC002418A0 /* Skill.swift in Sources */,
-				F971DF48291FE996002418A0 /* Hero.swift in Sources */,
 				F971DF4A291FE9E5002418A0 /* Origin.swift in Sources */,
-				F971DF4E291FEC7D002418A0 /* Spell.swift in Sources */,
+				F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +331,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,8 +360,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
