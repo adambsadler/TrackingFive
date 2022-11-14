@@ -11,28 +11,59 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State var warbandVM = WarbandViewModel()
+    @StateObject var warbandVM = WarbandViewModel()
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 50) {
-                Text("Choose A Game")
-                    .font(.title)
-                    .fontWeight(.semibold)
+                Spacer()
                 
-                NavigationLink {
-                    WarbandListView(warbandVM: warbandVM)
-                } label: {
-                    Text("Five Leagues \nFrom the Borderlands")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.brown)
-                        .cornerRadius(15)
+                Text("Tracking Five")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 30)
+                        NavigationLink {
+                            WarbandListView(warbandVM: warbandVM)
+                        } label: {
+                            Image("FiveLeaguesCover")
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(15)
+                                .frame(maxWidth: 250)
+                                .shadow(radius: 15)
+                                .padding()
+                                .padding(.leading)
+                                
+                        }
+                        
+                        NavigationLink {
+                            CrewListView()
+                        } label: {
+                            Image("FiveParsecsCover")
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(15)
+                                .frame(maxWidth: 250)
+                                .shadow(radius: 15)
+                                .padding()
+                                .padding(.trailing)
+                        }
+                        
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 25)
+                    }
                 }
-
-                Text("More to come...")
-                    .font(.headline)
+                Text("Choose a Game")
+                    .font(.title)
+                    .fontWeight(.bold)
                 
+                Spacer()
             }
         }
     }

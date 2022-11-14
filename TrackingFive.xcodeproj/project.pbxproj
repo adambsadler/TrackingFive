@@ -17,6 +17,8 @@
 		F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF60292025B0002418A0 /* WarbandListView.swift */; };
 		F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6329202951002418A0 /* WarbandViewModel.swift */; };
 		F971DF6929214C50002418A0 /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6829214C50002418A0 /* WeaponType.swift */; };
+		F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6A2922934E002418A0 /* CrewListView.swift */; };
+		F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999AF29229D64004FA16B /* WarbandDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		F971DF60292025B0002418A0 /* WarbandListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbandListView.swift; sourceTree = "<group>"; };
 		F971DF6329202951002418A0 /* WarbandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbandViewModel.swift; sourceTree = "<group>"; };
 		F971DF6829214C50002418A0 /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
+		F971DF6A2922934E002418A0 /* CrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewListView.swift; sourceTree = "<group>"; };
+		F99999AF29229D64004FA16B /* WarbandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbandDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				F971DF60292025B0002418A0 /* WarbandListView.swift */,
+				F971DF6A2922934E002418A0 /* CrewListView.swift */,
+				F99999AF29229D64004FA16B /* WarbandDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F971DF3A291FE785002418A0 /* Persistence.swift in Sources */,
+				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
 				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
@@ -197,6 +204,7 @@
 				F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */,
 				F971DF4A291FE9E5002418A0 /* Origin.swift in Sources */,
 				F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */,
+				F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Armor" representedClassName="Armor" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rating" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rules" optional="YES" attributeType="String"/>
@@ -11,14 +10,12 @@
         <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="armor" inverseEntity="Hero"/>
     </entity>
     <entity name="Contract" representedClassName="Contract" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="reward" optional="YES" attributeType="String"/>
         <attribute name="rules" optional="YES" attributeType="String"/>
         <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="contracts" inverseEntity="Warband"/>
     </entity>
     <entity name="EquipmentItem" representedClassName="EquipmentItem" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rules" optional="YES" attributeType="String"/>
         <relationship name="inBackpack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="itemsInBackpack" inverseEntity="Warband"/>
@@ -31,7 +28,6 @@
         <attribute name="casting" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="combatSkill" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dashSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="luck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -53,7 +49,6 @@
         <attribute name="combatSkill" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dashSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="experience" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="luck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="origin" optional="YES" attributeType="String"/>
@@ -72,28 +67,24 @@
         <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="notes" inverseEntity="Warband"/>
     </entity>
     <entity name="Quest" representedClassName="Quest" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="location" optional="YES" attributeType="String"/>
         <attribute name="rules" optional="YES" attributeType="String"/>
         <attribute name="task" optional="YES" attributeType="String"/>
         <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="quest" inverseEntity="Warband"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rules" optional="YES" attributeType="String"/>
         <relationship name="ofFollower" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Follower" inverseName="skills" inverseEntity="Follower"/>
         <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="skills" inverseEntity="Hero"/>
     </entity>
     <entity name="Spell" representedClassName="Spell" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="incantation" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rules" optional="YES" attributeType="String"/>
         <relationship name="ofHero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="spells" inverseEntity="Hero"/>
     </entity>
     <entity name="Threat" representedClassName="Threat" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="threats" inverseEntity="Warband"/>
@@ -102,7 +93,6 @@
         <attribute name="adventurePoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="currentLocation" optional="YES" attributeType="String"/>
         <attribute name="goldMarks" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="region" optional="YES" attributeType="String"/>
         <attribute name="storyPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -121,7 +111,6 @@
         <relationship name="weaponsInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weapon" inverseName="inBackpack" inverseEntity="Weapon"/>
     </entity>
     <entity name="Weapon" representedClassName="Weapon" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="overcomeArmor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="overcomeToughness" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
