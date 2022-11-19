@@ -19,6 +19,7 @@
 		F971DF6929214C50002418A0 /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6829214C50002418A0 /* WeaponType.swift */; };
 		F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6A2922934E002418A0 /* CrewListView.swift */; };
 		F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999AF29229D64004FA16B /* WarbandDetailView.swift */; };
+		F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B1292927A8004FA16B /* EditWarbandDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F971DF6829214C50002418A0 /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
 		F971DF6A2922934E002418A0 /* CrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewListView.swift; sourceTree = "<group>"; };
 		F99999AF29229D64004FA16B /* WarbandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbandDetailView.swift; sourceTree = "<group>"; };
+		F99999B1292927A8004FA16B /* EditWarbandDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWarbandDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				F971DF60292025B0002418A0 /* WarbandListView.swift */,
 				F971DF6A2922934E002418A0 /* CrewListView.swift */,
 				F99999AF29229D64004FA16B /* WarbandDetailView.swift */,
+				F99999B1292927A8004FA16B /* EditWarbandDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				F971DF4A291FE9E5002418A0 /* Origin.swift in Sources */,
 				F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */,
 				F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */,
+				F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

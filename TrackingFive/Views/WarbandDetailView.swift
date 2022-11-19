@@ -8,16 +8,62 @@
 import SwiftUI
 
 struct WarbandDetailView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var warbandVM: WarbandViewModel
-    @ObservedObject var warband: Warband
+    var warband: Warband
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            Text(warband.name ?? "New Warband")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-        }
+            VStack {
+                HStack {
+                    Text("Warband Details")
+                        .font(.headline)
+                        .fontWeight(.heavy)
+                        .padding(.leading)
+                        .padding(.top)
+                    Spacer()
+                    NavigationLink {
+                        EditWarbandDetailsView(warbandVM: warbandVM, warband: warband)
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                            .padding(.trailing)
+                            .foregroundColor(.accentColor)
+                    }
+                }
+                
+                Divider()
+                    .padding(.horizontal)
+                
+                VStack(alignment: .leading, spacing: 5) {
+                    HStack {
+                        Text("Region:")
+                            .fontWeight(.bold)
+                        Text(warband.region ?? "None")
+                        Spacer()
+                    }
+                    HStack {
+                        Text("Current Location:")
+                            .fontWeight(.bold)
+                        Text(warband.currentLocation ?? "None")
+                    }
+                    HStack {
+                        Text("Story Points:")
+                            .fontWeight(.bold)
+                        Text("\(warband.storyPoints)")
+                    }
+                    HStack {
+                        Text("Adventure Points:")
+                            .fontWeight(.bold)
+                        Text("\(warband.adventurePoints)")
+                    }
+                    HStack {
+                        Text("Gold Marks:")
+                            .fontWeight(.bold)
+                        Text("\(warband.goldMarks)")
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }.navigationTitle(warband.name ?? "New Warband")
     }
 }
 
