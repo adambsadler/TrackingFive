@@ -87,7 +87,9 @@
     <entity name="Threat" representedClassName="Threat" syncable="YES" codeGenerationType="class">
         <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="threats" inverseEntity="Warband"/>
+        <relationship name="firstOfWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="firstThreat" inverseEntity="Warband"/>
+        <relationship name="secondOfWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="secondThreat" inverseEntity="Warband"/>
+        <relationship name="thirdOfWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="thirdThreat" inverseEntity="Warband"/>
     </entity>
     <entity name="Warband" representedClassName="Warband" syncable="YES" codeGenerationType="class">
         <attribute name="adventurePoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -98,16 +100,18 @@
         <attribute name="storyPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="armorInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Armor" inverseName="inBackpack" inverseEntity="Armor"/>
         <relationship name="contracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contract" inverseName="ofWarband" inverseEntity="Contract"/>
+        <relationship name="firstThreat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Threat" inverseName="firstOfWarband" inverseEntity="Threat"/>
         <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Follower" inverseName="ofWarband" inverseEntity="Follower"/>
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="ofWarband" inverseEntity="Friend"/>
         <relationship name="heroes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hero" inverseName="ofWarband" inverseEntity="Hero"/>
         <relationship name="itemsInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquipmentItem" inverseName="inBackpack" inverseEntity="EquipmentItem"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="ofWarband" inverseEntity="Note"/>
         <relationship name="quest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quest" inverseName="ofWarband" inverseEntity="Quest"/>
+        <relationship name="secondThreat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Threat" inverseName="secondOfWarband" inverseEntity="Threat"/>
         <relationship name="stashedArmor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Armor" inverseName="inStash" inverseEntity="Armor"/>
         <relationship name="stashedItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquipmentItem" inverseName="inStash" inverseEntity="EquipmentItem"/>
         <relationship name="stashedWeapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weapon" inverseName="inStash" inverseEntity="Weapon"/>
-        <relationship name="threats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Threat" inverseName="ofWarband" inverseEntity="Threat"/>
+        <relationship name="thirdThreat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Threat" inverseName="thirdOfWarband" inverseEntity="Threat"/>
         <relationship name="weaponsInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weapon" inverseName="inBackpack" inverseEntity="Weapon"/>
     </entity>
     <entity name="Weapon" representedClassName="Weapon" syncable="YES" codeGenerationType="class">

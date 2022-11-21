@@ -43,6 +43,7 @@ struct WarbandListView: View {
         }
         .alert("Create New Warband", isPresented: $showingCreateView) {
             TextField("Warband Name", text: $newWarbandName)
+                .disableAutocorrection(true)
             Button("Create") {
                 warbandVM.createWarband(name: newWarbandName)
                 newWarbandName = ""

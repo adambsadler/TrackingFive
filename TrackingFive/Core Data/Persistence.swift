@@ -29,7 +29,7 @@ struct PersistenceController {
         let newThreat = Threat(context: viewContext)
         newThreat.name = "The Ruin Within"
         newThreat.level = 5
-        newWarband.addToThreats(newThreat)
+        newWarband.firstThreat = newThreat
         
         let newQuest = Quest(context: viewContext)
         newQuest.task = "Rescue the prisoner"

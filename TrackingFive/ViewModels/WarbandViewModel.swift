@@ -25,11 +25,48 @@ class WarbandViewModel: ObservableObject {
         let newWarband = Warband(context: context)
         newWarband.name = name
         
-        do {
-            try context.save()
-        } catch {
-            let error = error as NSError
-            print("Error saving new warband: \(error.localizedDescription)")
+        saveData()
+    }
+    
+    func createThreat(name: String, number: ThreatNumber, warband: Warband) {
+        let newThreat = Threat(context: context)
+        newThreat.name = name
+        
+        switch number {
+        case .first:
+            warband.firstThreat = newThreat
+        case .second:
+            warband.secondThreat = newThreat
+        case .third:
+            warband.thirdThreat = newThreat
         }
+        
+        saveData()
+    }
+    
+    func increaseThreatLevel(threat: Threat) {
+        if threat.level < 9 {
+            DispatchQueue.main.async {
+                threat.level += 1
+            }
+        }
+        
+        saveData()
+    }
+    
+    func decreaseThreatLevel(threat: Threat) {
+        if threat.level > 0 {
+            DispatchQueue.main.async {
+                threat.level -= 1
+            }
+        }
+        
+        saveData()
+    }
+    
+    func deleteThreat(threat: Threat) {
+        context.delete(threat)
+        
+        saveData()
     }
 }

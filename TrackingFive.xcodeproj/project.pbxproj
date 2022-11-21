@@ -20,6 +20,9 @@
 		F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF6A2922934E002418A0 /* CrewListView.swift */; };
 		F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999AF29229D64004FA16B /* WarbandDetailView.swift */; };
 		F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B1292927A8004FA16B /* EditWarbandDetailsView.swift */; };
+		F99999B4292BE8E1004FA16B /* ThreatLevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B3292BE8E1004FA16B /* ThreatLevelsView.swift */; };
+		F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B5292BEF9D004FA16B /* ThreatNumber.swift */; };
+		F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B7292C0246004FA16B /* EditThreatsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		F971DF6A2922934E002418A0 /* CrewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewListView.swift; sourceTree = "<group>"; };
 		F99999AF29229D64004FA16B /* WarbandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbandDetailView.swift; sourceTree = "<group>"; };
 		F99999B1292927A8004FA16B /* EditWarbandDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWarbandDetailsView.swift; sourceTree = "<group>"; };
+		F99999B3292BE8E1004FA16B /* ThreatLevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatLevelsView.swift; sourceTree = "<group>"; };
+		F99999B5292BEF9D004FA16B /* ThreatNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatNumber.swift; sourceTree = "<group>"; };
+		F99999B7292C0246004FA16B /* EditThreatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThreatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 			children = (
 				F971DF49291FE9E5002418A0 /* Origin.swift */,
 				F971DF6829214C50002418A0 /* WeaponType.swift */,
+				F99999B5292BEF9D004FA16B /* ThreatNumber.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +115,8 @@
 				F971DF6A2922934E002418A0 /* CrewListView.swift */,
 				F99999AF29229D64004FA16B /* WarbandDetailView.swift */,
 				F99999B1292927A8004FA16B /* EditWarbandDetailsView.swift */,
+				F99999B3292BE8E1004FA16B /* ThreatLevelsView.swift */,
+				F99999B7292C0246004FA16B /* EditThreatsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +210,8 @@
 				F971DF3A291FE785002418A0 /* Persistence.swift in Sources */,
 				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
 				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
+				F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */,
+				F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
 				F971DF3D291FE785002418A0 /* TrackingFive.xcdatamodeld in Sources */,
@@ -209,6 +220,7 @@
 				F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */,
 				F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */,
 				F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */,
+				F99999B4292BE8E1004FA16B /* ThreatLevelsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
