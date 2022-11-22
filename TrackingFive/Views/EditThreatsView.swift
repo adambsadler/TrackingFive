@@ -16,7 +16,7 @@ struct EditThreatsView: View {
             if let threat = warband.firstThreat {
                 HStack {
                     Text(threat.name ?? "First Threat")
-                        .fontWeight(.heavy)
+                        .fontWeight(.bold)
                     Spacer()
                     Button {
                         warbandVM.deleteThreat(threat: threat)
@@ -29,12 +29,13 @@ struct EditThreatsView: View {
                             .padding(.trailing)
                     }
                 }
+                .padding(.vertical)
             }
             
             if let threat = warband.secondThreat {
                 HStack {
                     Text(threat.name ?? "Second Threat")
-                        .fontWeight(.heavy)
+                        .fontWeight(.bold)
                     Spacer()
                     Button {
                         warbandVM.deleteThreat(threat: threat)
@@ -47,12 +48,13 @@ struct EditThreatsView: View {
                             .padding(.trailing)
                     }
                 }
+                .padding(.vertical)
             }
             
             if let threat = warband.thirdThreat {
                 HStack {
                     Text(threat.name ?? "Third Threat")
-                        .fontWeight(.heavy)
+                        .fontWeight(.bold)
                     Spacer()
                     Button {
                         warbandVM.deleteThreat(threat: threat)
@@ -65,6 +67,7 @@ struct EditThreatsView: View {
                             .padding(.trailing)
                     }
                 }
+                .padding(.vertical)
             }
         }
     }
