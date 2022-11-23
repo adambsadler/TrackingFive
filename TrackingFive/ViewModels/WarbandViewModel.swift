@@ -13,9 +13,11 @@ class WarbandViewModel: ObservableObject {
     let context = PersistenceController.shared.container.viewContext
     
     @Published var friends: [Friend] = []
+    @Published var hiddenLocations: [HiddenLocation] = []
     
     func loadWarbandData(warband: Warband) {
         getWarbandFriends(warband: warband)
+        getHiddenLocations(warband: warband)
     }
     
     func saveData() {
@@ -96,6 +98,26 @@ class WarbandViewModel: ObservableObject {
         saveData()
     }
     
+    func createHiddenLocation(name: String, warband: Warband) {
+        let newHiddenLocation = HiddenLocation(context: context)
+        newHiddenLocation.name = name
+        warband.addToHiddenLocations(newHiddenLocation)
+        
+        hiddenLocations.append(newHiddenLocation)
+        
+        saveData()
+    }
+    
+    func deleteHiddenLocation(location: HiddenLocation, warband: Warband) {
+        hiddenLocations.removeAll { savedLocation in
+            location == savedLocation
+        }
+        
+        context.delete(location)
+        
+        saveData()
+    }
+    
     func getWarbandFriends(warband: Warband) {
         friends.removeAll()
         
@@ -113,6 +135,26 @@ class WarbandViewModel: ObservableObject {
         } catch {
             let error = error as NSError
             print("Error fetching freind array: \(error)")
+        }
+    }
+    
+    func getHiddenLocations(warband: Warband) {
+        hiddenLocations.removeAll()
+        
+        let fetchRequest: NSFetchRequest<HiddenLocation>
+        fetchRequest = HiddenLocation.fetchRequest()
+        
+        do {
+            let warbandLocations = try context.fetch(fetchRequest)
+            
+            for location in warbandLocations {
+                if location.ofWarband == warband {
+                    hiddenLocations.append(location)
+                }
+            }
+        } catch {
+            let error = error as NSError
+            print("Error fetching hidden locations: \(error)")
         }
     }
 }

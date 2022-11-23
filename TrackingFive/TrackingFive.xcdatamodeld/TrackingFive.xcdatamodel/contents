@@ -62,6 +62,10 @@
         <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="ofHero" inverseEntity="Spell"/>
         <relationship name="weapons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weapon" inverseName="ofHero" inverseEntity="Weapon"/>
     </entity>
+    <entity name="HiddenLocation" representedClassName="HiddenLocation" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="hiddenLocations" inverseEntity="Warband"/>
+    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="content" optional="YES" attributeType="String"/>
         <relationship name="ofWarband" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="notes" inverseEntity="Warband"/>
@@ -104,6 +108,7 @@
         <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Follower" inverseName="ofWarband" inverseEntity="Follower"/>
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="ofWarband" inverseEntity="Friend"/>
         <relationship name="heroes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hero" inverseName="ofWarband" inverseEntity="Hero"/>
+        <relationship name="hiddenLocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HiddenLocation" inverseName="ofWarband" inverseEntity="HiddenLocation"/>
         <relationship name="itemsInBackpack" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquipmentItem" inverseName="inBackpack" inverseEntity="EquipmentItem"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="ofWarband" inverseEntity="Note"/>
         <relationship name="quest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quest" inverseName="ofWarband" inverseEntity="Quest"/>

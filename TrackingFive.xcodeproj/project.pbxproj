@@ -24,6 +24,7 @@
 		F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B5292BEF9D004FA16B /* ThreatNumber.swift */; };
 		F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B7292C0246004FA16B /* EditThreatsView.swift */; };
 		F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */; };
+		F99999BC292E71DC004FA16B /* HiddenLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999BB292E71DC004FA16B /* HiddenLocationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F99999B5292BEF9D004FA16B /* ThreatNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatNumber.swift; sourceTree = "<group>"; };
 		F99999B7292C0246004FA16B /* EditThreatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThreatsView.swift; sourceTree = "<group>"; };
 		F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsKnownView.swift; sourceTree = "<group>"; };
+		F99999BB292E71DC004FA16B /* HiddenLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenLocationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				F99999B3292BE8E1004FA16B /* ThreatLevelsView.swift */,
 				F99999B7292C0246004FA16B /* EditThreatsView.swift */,
 				F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */,
+				F99999BB292E71DC004FA16B /* HiddenLocationsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
+				F99999BC292E71DC004FA16B /* HiddenLocationsView.swift in Sources */,
 				F971DF3D291FE785002418A0 /* TrackingFive.xcdatamodeld in Sources */,
 				F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */,
 				F971DF4A291FE9E5002418A0 /* Origin.swift in Sources */,

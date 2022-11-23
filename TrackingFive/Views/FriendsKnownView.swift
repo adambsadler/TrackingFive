@@ -32,10 +32,10 @@ struct FriendsKnownView: View {
                 }
             }
         }
-        .alert("Create New Friend", isPresented: $isAddingFriend) {
+        .alert("Add a Friend", isPresented: $isAddingFriend) {
             TextField("Friend Name", text: $newFriendName)
                 .disableAutocorrection(true)
-            Button("Create") {
+            Button("Add") {
                 warbandVM.createFriend(name: newFriendName, warband: warband)
                 newFriendName = ""
             }
