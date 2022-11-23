@@ -12,6 +12,12 @@ import Combine
 class WarbandViewModel: ObservableObject {
     let context = PersistenceController.shared.container.viewContext
     
+    @Published var friends: [Friend] = []
+    
+    func loadWarbandData(warband: Warband) {
+        getWarbandFriends(warband: warband)
+    }
+    
     func saveData() {
         do {
             try context.save()
@@ -68,5 +74,45 @@ class WarbandViewModel: ObservableObject {
         context.delete(threat)
         
         saveData()
+    }
+    
+    func createFriend(name: String, warband: Warband) {
+        let newFriend = Friend(context: context)
+        newFriend.name = name
+        warband.addToFriends(newFriend)
+        
+        friends.append(newFriend)
+        
+        saveData()
+    }
+    
+    func deleteFriend(friend: Friend, warband: Warband) {
+        friends.removeAll { savedFriend in
+            friend == savedFriend
+        }
+        
+        context.delete(friend)
+        
+        saveData()
+    }
+    
+    func getWarbandFriends(warband: Warband) {
+        friends.removeAll()
+        
+        let fetchRequest: NSFetchRequest<Friend>
+        fetchRequest = Friend.fetchRequest()
+        
+        do {
+            let warbandFriends = try context.fetch(fetchRequest)
+            
+            for friend in warbandFriends {
+                if friend.ofWarband == warband {
+                    friends.append(friend)
+                }
+            }
+        } catch {
+            let error = error as NSError
+            print("Error fetching freind array: \(error)")
+        }
     }
 }

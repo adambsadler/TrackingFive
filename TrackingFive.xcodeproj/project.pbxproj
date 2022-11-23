@@ -23,6 +23,7 @@
 		F99999B4292BE8E1004FA16B /* ThreatLevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B3292BE8E1004FA16B /* ThreatLevelsView.swift */; };
 		F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B5292BEF9D004FA16B /* ThreatNumber.swift */; };
 		F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B7292C0246004FA16B /* EditThreatsView.swift */; };
+		F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F99999B3292BE8E1004FA16B /* ThreatLevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatLevelsView.swift; sourceTree = "<group>"; };
 		F99999B5292BEF9D004FA16B /* ThreatNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatNumber.swift; sourceTree = "<group>"; };
 		F99999B7292C0246004FA16B /* EditThreatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThreatsView.swift; sourceTree = "<group>"; };
+		F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsKnownView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				F99999B1292927A8004FA16B /* EditWarbandDetailsView.swift */,
 				F99999B3292BE8E1004FA16B /* ThreatLevelsView.swift */,
 				F99999B7292C0246004FA16B /* EditThreatsView.swift */,
+				F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */,
 				F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */,
 				F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */,
+				F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */,
 				F99999B4292BE8E1004FA16B /* ThreatLevelsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

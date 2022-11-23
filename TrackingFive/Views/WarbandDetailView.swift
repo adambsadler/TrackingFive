@@ -11,6 +11,7 @@ struct WarbandDetailView: View {
     @ObservedObject var warbandVM: WarbandViewModel
     @ObservedObject var warband: Warband
     @State var isEditingThreats: Bool = false
+    @State var isAddingFriend: Bool = false
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -78,7 +79,6 @@ struct WarbandDetailView: View {
                             .padding(.trailing)
                             .foregroundColor(.accentColor)
                     }
-                    
                 }
                 
                 Divider()
@@ -92,9 +92,33 @@ struct WarbandDetailView: View {
                         .padding(.horizontal)
                 }
                 
+                HStack {
+                    Text("Friends Known")
+                        .font(.headline)
+                        .fontWeight(.heavy)
+                        .padding(.leading)
+                        .padding(.top)
+                    Spacer()
+                    Button {
+                        isAddingFriend.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .padding(.trailing)
+                            .foregroundColor(.accentColor)
+                    }
+                }
                 
+                Divider()
+                    .padding(.horizontal)
+                
+                FriendsKnownView(warbandVM: warbandVM, warband: warband, isAddingFriend: $isAddingFriend)
+                    .padding(.horizontal)
             }
-        }.navigationTitle(warband.name ?? "New Warband")
+        }
+        .navigationTitle(warband.name ?? "New Warband")
+        .onAppear {
+            warbandVM.loadWarbandData(warband: warband)
+        }
     }
 }
 
