@@ -25,6 +25,9 @@
 		F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B7292C0246004FA16B /* EditThreatsView.swift */; };
 		F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */; };
 		F99999BC292E71DC004FA16B /* HiddenLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999BB292E71DC004FA16B /* HiddenLocationsView.swift */; };
+		F99999BE29311693004FA16B /* EquipmentStashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999BD29311693004FA16B /* EquipmentStashView.swift */; };
+		F99999C0293122F9004FA16B /* NewItemPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999BF293122F9004FA16B /* NewItemPlacement.swift */; };
+		F99999C229315995004FA16B /* CreateItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C129315995004FA16B /* CreateItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		F99999B7292C0246004FA16B /* EditThreatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThreatsView.swift; sourceTree = "<group>"; };
 		F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsKnownView.swift; sourceTree = "<group>"; };
 		F99999BB292E71DC004FA16B /* HiddenLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenLocationsView.swift; sourceTree = "<group>"; };
+		F99999BD29311693004FA16B /* EquipmentStashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentStashView.swift; sourceTree = "<group>"; };
+		F99999BF293122F9004FA16B /* NewItemPlacement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemPlacement.swift; sourceTree = "<group>"; };
+		F99999C129315995004FA16B /* CreateItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 				F971DF49291FE9E5002418A0 /* Origin.swift */,
 				F971DF6829214C50002418A0 /* WeaponType.swift */,
 				F99999B5292BEF9D004FA16B /* ThreatNumber.swift */,
+				F99999BF293122F9004FA16B /* NewItemPlacement.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +130,8 @@
 				F99999B7292C0246004FA16B /* EditThreatsView.swift */,
 				F99999B9292D9FC8004FA16B /* FriendsKnownView.swift */,
 				F99999BB292E71DC004FA16B /* HiddenLocationsView.swift */,
+				F99999BD29311693004FA16B /* EquipmentStashView.swift */,
+				F99999C129315995004FA16B /* CreateItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F971DF3A291FE785002418A0 /* Persistence.swift in Sources */,
+				F99999C0293122F9004FA16B /* NewItemPlacement.swift in Sources */,
 				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
 				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
 				F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */,
@@ -229,6 +239,8 @@
 				F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */,
 				F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */,
 				F99999B4292BE8E1004FA16B /* ThreatLevelsView.swift in Sources */,
+				F99999C229315995004FA16B /* CreateItemView.swift in Sources */,
+				F99999BE29311693004FA16B /* EquipmentStashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

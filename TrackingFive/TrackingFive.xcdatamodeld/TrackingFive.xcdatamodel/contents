@@ -123,6 +123,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="overcomeArmor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="overcomeToughness" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="range" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rules" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="inBackpack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warband" inverseName="weaponsInBackpack" inverseEntity="Warband"/>

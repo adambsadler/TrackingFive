@@ -21,7 +21,7 @@ struct FriendsKnownView: View {
                         Text("• \(friendName)")
                         Spacer()
                         Button {
-                            warbandVM.deleteFriend(friend: friend, warband: warband)
+                            warbandVM.deleteFriend(friend: friend)
                         } label: {
                             Image(systemName: "x.circle.fill")
                                 .foregroundColor(.red)

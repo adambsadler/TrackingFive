@@ -139,6 +139,28 @@ struct WarbandDetailView: View {
                     
                     HiddenLocationsView(warbandVM: warbandVM, warband: warband, isAddingLocation: $isAddingLocation)
                         .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Equipment Stash")
+                            .font(.headline)
+                            .fontWeight(.heavy)
+                            .padding(.leading)
+                            .padding(.top)
+                        Spacer()
+                        NavigationLink {
+                            CreateItemView(warbandVM: warbandVM, warband: warband, placement: .stash)
+                        } label: {
+                            Image(systemName: "plus.circle")
+                                .padding(.trailing)
+                                .foregroundColor(.accentColor)
+                        }
+                    }
+                    
+                    Divider()
+                        .padding(.horizontal)
+                    
+                    EquipmentStashView(warbandVM: warbandVM, warband: warband)
+                        .padding(.horizontal)
                 }
                 
             }

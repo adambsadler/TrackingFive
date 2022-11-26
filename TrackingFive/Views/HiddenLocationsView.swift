@@ -21,7 +21,7 @@ struct HiddenLocationsView: View {
                         Text("• \(locationName)")
                         Spacer()
                         Button {
-                            warbandVM.deleteHiddenLocation(location: location, warband: warband)
+                            warbandVM.deleteHiddenLocation(location: location)
                         } label: {
                             Image(systemName: "x.circle.fill")
                                 .foregroundColor(.red)
