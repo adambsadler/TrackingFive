@@ -12,11 +12,16 @@ import Combine
 class WarbandViewModel: ObservableObject {
     let context = PersistenceController.shared.container.viewContext
     
+    @Published var heroes: [Hero] = []
+    @Published var followers: [Follower] = []
     @Published var friends: [Friend] = []
     @Published var hiddenLocations: [HiddenLocation] = []
     @Published var stashedItems: [EquipmentItem] = []
     @Published var stashedWeapons: [Weapon] = []
     @Published var stashedArmor: [Armor] = []
+    @Published var itemsInBackpack: [EquipmentItem] = []
+    @Published var weaponsInBackpack: [Weapon] = []
+    @Published var armorInBackpack: [Armor] = []
     
     func loadWarbandData(warband: Warband) {
         getWarbandFriends(warband: warband)
@@ -24,6 +29,9 @@ class WarbandViewModel: ObservableObject {
         getStashedItems(warband: warband)
         getStashedWeapons(warband: warband)
         getStashedArmor(warband: warband)
+        getBackpackItems(warband: warband)
+        getBackpackWeapons(warband: warband)
+        getBackpackArmor(warband: warband)
     }
     
     func saveData() {
@@ -137,7 +145,11 @@ class WarbandViewModel: ObservableObject {
                 print("Unable to add new item to warband stash because there was no warband passed into \(#function)")
             }
         case .backpack:
-            return
+            if let warband = warband {
+                addItemToBackpack(item: newItem, warband: warband)
+            } else {
+                print("Unable to add new item to warband backpack because there was no warband passed into \(#function)")
+            }
         case .hero:
             return
         case .follower:
@@ -150,6 +162,13 @@ class WarbandViewModel: ObservableObject {
     func addItemToStash(item: EquipmentItem, warband: Warband) {
         stashedItems.append(item)
         warband.addToStashedItems(item)
+        
+        saveData()
+    }
+    
+    func addItemToBackpack(item: EquipmentItem, warband: Warband) {
+        itemsInBackpack.append(item)
+        warband.addToItemsInBackpack(item)
         
         saveData()
     }
@@ -181,7 +200,11 @@ class WarbandViewModel: ObservableObject {
                 print("Unable to add new weapon to warband stash because there was no warband passed into \(#function)")
             }
         case .backpack:
-            return
+            if let warband = warband {
+                addWeaponToBackpack(weapon: newWeapon, warband: warband)
+            } else {
+                print("Unable to add new weapon to warband backpack because there was no warband passed into \(#function)")
+            }
         case .hero:
             return
         case .follower:
@@ -194,6 +217,13 @@ class WarbandViewModel: ObservableObject {
     func addWeaponToStash(weapon: Weapon, warband: Warband) {
         stashedWeapons.append(weapon)
         warband.addToStashedWeapons(weapon)
+        
+        saveData()
+    }
+    
+    func addWeaponToBackpack(weapon: Weapon, warband: Warband) {
+        weaponsInBackpack.append(weapon)
+        warband.addToWeaponsInBackpack(weapon)
         
         saveData()
     }
@@ -222,7 +252,11 @@ class WarbandViewModel: ObservableObject {
                 print("Unable to add new armor to warband stash because there was no warband passed into \(#function)")
             }
         case .backpack:
-            return
+            if let warband = warband {
+                addArmorToBackpack(armor: newArmor, warband: warband)
+            } else {
+                print("Unable to add new armor to warband backpack because there was no warband passed into \(#function)")
+            }
         case .hero:
             return
         case .follower:
@@ -235,6 +269,13 @@ class WarbandViewModel: ObservableObject {
     func addArmorToStash(armor: Armor, warband: Warband) {
         stashedArmor.append(armor)
         warband.addToStashedArmor(armor)
+        
+        saveData()
+    }
+    
+    func addArmorToBackpack(armor: Armor, warband: Warband) {
+        armorInBackpack.append(armor)
+        warband.addToArmorInBackpack(armor)
         
         saveData()
     }
@@ -309,6 +350,26 @@ class WarbandViewModel: ObservableObject {
         }
     }
     
+    func getBackpackItems(warband: Warband) {
+        itemsInBackpack.removeAll()
+        
+        let fetchRequest: NSFetchRequest<EquipmentItem>
+        fetchRequest = EquipmentItem.fetchRequest()
+        
+        do {
+            let warbandBackpackItems = try context.fetch(fetchRequest)
+            
+            for backpackItem in warbandBackpackItems {
+                if backpackItem.inBackpack == warband {
+                    itemsInBackpack.append(backpackItem)
+                }
+            }
+        } catch {
+            let error = error as NSError
+            print("Error fetching backpack items: \(error)")
+        }
+    }
+    
     func getStashedWeapons(warband: Warband) {
         stashedWeapons.removeAll()
         
@@ -329,6 +390,26 @@ class WarbandViewModel: ObservableObject {
         }
     }
     
+    func getBackpackWeapons(warband: Warband) {
+        weaponsInBackpack.removeAll()
+        
+        let fetchRequest: NSFetchRequest<Weapon>
+        fetchRequest = Weapon.fetchRequest()
+        
+        do {
+            let warbandBackpackWeapons = try context.fetch(fetchRequest)
+            
+            for backpackWeapon in warbandBackpackWeapons {
+                if backpackWeapon.inBackpack == warband {
+                    weaponsInBackpack.append(backpackWeapon)
+                }
+            }
+        } catch {
+            let error = error as NSError
+            print("Error fetching backpack weapons: \(error)")
+        }
+    }
+    
     func getStashedArmor(warband: Warband) {
         stashedArmor.removeAll()
         
@@ -346,6 +427,26 @@ class WarbandViewModel: ObservableObject {
         } catch {
             let error = error as NSError
             print("Error fetching stashed armor: \(error)")
+        }
+    }
+    
+    func getBackpackArmor(warband: Warband) {
+        armorInBackpack.removeAll()
+        
+        let fetchRequest: NSFetchRequest<Armor>
+        fetchRequest = Armor.fetchRequest()
+        
+        do {
+            let warbandBackpackArmor = try context.fetch(fetchRequest)
+            
+            for backpackArmor in warbandBackpackArmor {
+                if backpackArmor.inBackpack == warband {
+                    armorInBackpack.append(backpackArmor)
+                }
+            }
+        } catch {
+            let error = error as NSError
+            print("Error fetching backpack armor: \(error)")
         }
     }
     

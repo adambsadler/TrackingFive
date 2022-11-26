@@ -161,8 +161,32 @@ struct WarbandDetailView: View {
                     
                     EquipmentStashView(warbandVM: warbandVM, warband: warband)
                         .padding(.horizontal)
+                    
                 }
                 
+                Group {
+                    HStack {
+                        Text("Backpack")
+                            .font(.headline)
+                            .fontWeight(.heavy)
+                            .padding(.leading)
+                            .padding(.top)
+                        Spacer()
+                        NavigationLink {
+                            CreateItemView(warbandVM: warbandVM, warband: warband, placement: .backpack)
+                        } label: {
+                            Image(systemName: "plus.circle")
+                                .padding(.trailing)
+                                .foregroundColor(.accentColor)
+                        }
+                    }
+                    
+                    Divider()
+                        .padding(.horizontal)
+                    
+                    BackpackView(warbandVM: warbandVM, warband: warband)
+                        .padding(.horizontal)
+                }
             }
         }
         .navigationTitle(warband.name ?? "New Warband")

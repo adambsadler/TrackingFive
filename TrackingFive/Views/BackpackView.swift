@@ -1,19 +1,19 @@
 //
-//  EquipmentStashView.swift
+//  BackpackView.swift
 //  TrackingFive
 //
-//  Created by Adam Sadler on 11/25/22.
+//  Created by Adam Sadler on 11/26/22.
 //
 
 import SwiftUI
 
-struct EquipmentStashView: View {
+struct BackpackView: View {
     @ObservedObject var warbandVM: WarbandViewModel
     @ObservedObject var warband: Warband
     
     var body: some View {
         VStack {
-            if !warbandVM.stashedItems.isEmpty {
+            if !warbandVM.itemsInBackpack.isEmpty {
                 HStack {
                     Text("Items")
                         .fontWeight(.bold)
@@ -21,7 +21,7 @@ struct EquipmentStashView: View {
                 }
             }
             
-            ForEach(warbandVM.stashedItems, id: \.self) { item in
+            ForEach(warbandVM.itemsInBackpack, id: \.self) { item in
                 if let itemName = item.name {
                     HStack {
                         Text("• \(itemName)")
@@ -38,7 +38,7 @@ struct EquipmentStashView: View {
                 }
             }
             
-            if !warbandVM.stashedWeapons.isEmpty {
+            if !warbandVM.weaponsInBackpack.isEmpty {
                 HStack {
                     Text("Weapons")
                         .fontWeight(.bold)
@@ -46,7 +46,7 @@ struct EquipmentStashView: View {
                 }
             }
             
-            ForEach(warbandVM.stashedWeapons, id: \.self) { weapon in
+            ForEach(warbandVM.weaponsInBackpack, id: \.self) { weapon in
                 if let weaponName = weapon.name {
                     HStack {
                         Text("• \(weaponName)")
@@ -63,7 +63,7 @@ struct EquipmentStashView: View {
                 }
             }
             
-            if !warbandVM.stashedArmor.isEmpty {
+            if !warbandVM.armorInBackpack.isEmpty {
                 HStack {
                     Text("Armor")
                         .fontWeight(.bold)
@@ -71,7 +71,7 @@ struct EquipmentStashView: View {
                 }
             }
             
-            ForEach(warbandVM.stashedArmor, id: \.self) { armor in
+            ForEach(warbandVM.armorInBackpack, id: \.self) { armor in
                 if let armorName = armor.name {
                     HStack {
                         Text("• \(armorName)")
@@ -91,12 +91,12 @@ struct EquipmentStashView: View {
     }
 }
 
-struct EquipmentStashView_Previews: PreviewProvider {
+struct BackpackView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = PersistenceController.preview.container.viewContext
         let previewWarband = Warband(context: viewContext)
         previewWarband.name = "The Brightguard"
         
-        return EquipmentStashView(warbandVM: WarbandViewModel(), warband: previewWarband)
+        return BackpackView(warbandVM: WarbandViewModel(), warband: previewWarband)
     }
 }

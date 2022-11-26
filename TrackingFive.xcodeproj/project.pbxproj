@@ -28,6 +28,7 @@
 		F99999BE29311693004FA16B /* EquipmentStashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999BD29311693004FA16B /* EquipmentStashView.swift */; };
 		F99999C0293122F9004FA16B /* NewItemPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999BF293122F9004FA16B /* NewItemPlacement.swift */; };
 		F99999C229315995004FA16B /* CreateItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C129315995004FA16B /* CreateItemView.swift */; };
+		F99999C429328ABF004FA16B /* BackpackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C329328ABF004FA16B /* BackpackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		F99999BD29311693004FA16B /* EquipmentStashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentStashView.swift; sourceTree = "<group>"; };
 		F99999BF293122F9004FA16B /* NewItemPlacement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemPlacement.swift; sourceTree = "<group>"; };
 		F99999C129315995004FA16B /* CreateItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemView.swift; sourceTree = "<group>"; };
+		F99999C329328ABF004FA16B /* BackpackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackpackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				F99999BB292E71DC004FA16B /* HiddenLocationsView.swift */,
 				F99999BD29311693004FA16B /* EquipmentStashView.swift */,
 				F99999C129315995004FA16B /* CreateItemView.swift */,
+				F99999C329328ABF004FA16B /* BackpackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
+				F99999C429328ABF004FA16B /* BackpackView.swift in Sources */,
 				F99999BC292E71DC004FA16B /* HiddenLocationsView.swift in Sources */,
 				F971DF3D291FE785002418A0 /* TrackingFive.xcdatamodeld in Sources */,
 				F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */,
