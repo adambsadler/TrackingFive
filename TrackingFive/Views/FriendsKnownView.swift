@@ -10,11 +10,27 @@ import SwiftUI
 struct FriendsKnownView: View {
     @ObservedObject var warbandVM: WarbandViewModel
     @ObservedObject var warband: Warband
-    @Binding var isAddingFriend: Bool
+    @State var isAddingFriend: Bool = false
     @State var newFriendName: String = ""
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Friends Known")
+                    .font(.headline)
+                    .fontWeight(.heavy)
+                    .padding(.top)
+                Spacer()
+                Button {
+                    isAddingFriend.toggle()
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .foregroundColor(.accentColor)
+                }
+            }
+            
+            Divider()
+            
             ForEach(warbandVM.friends, id: \.self) { friend in
                 if let friendName = friend.name {
                     HStack {
@@ -32,6 +48,7 @@ struct FriendsKnownView: View {
                 }
             }
         }
+        .padding(.horizontal)
         .alert("Add a Friend", isPresented: $isAddingFriend) {
             TextField("Friend Name", text: $newFriendName)
                 .disableAutocorrection(true)
@@ -55,6 +72,6 @@ struct FriendsKnownView_Previews: PreviewProvider {
         let previewWarband = Warband(context: viewContext)
         previewWarband.name = "The Brightguard"
         
-        return FriendsKnownView(warbandVM: WarbandViewModel(), warband: previewWarband, isAddingFriend: .constant(false))
+        return FriendsKnownView(warbandVM: WarbandViewModel(), warband: previewWarband, isAddingFriend: false)
     }
 }

@@ -13,6 +13,22 @@ struct BackpackView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Backpack")
+                    .font(.headline)
+                    .fontWeight(.heavy)
+                    .padding(.top)
+                Spacer()
+                NavigationLink {
+                    CreateItemView(warbandVM: warbandVM, warband: warband, placement: .backpack)
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .foregroundColor(.accentColor)
+                }
+            }
+            
+            Divider()
+            
             if !warbandVM.itemsInBackpack.isEmpty {
                 HStack {
                     Text("Items")
@@ -88,6 +104,7 @@ struct BackpackView: View {
                 }
             }
         }
+        .padding(.horizontal)
     }
 }
 

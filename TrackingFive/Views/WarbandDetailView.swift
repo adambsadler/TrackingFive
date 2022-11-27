@@ -10,9 +10,9 @@ import SwiftUI
 struct WarbandDetailView: View {
     @ObservedObject var warbandVM: WarbandViewModel
     @ObservedObject var warband: Warband
+    @State var isShowingNote: Bool = false
+    @State var isAddingNote: Bool = false
     @State var isEditingThreats: Bool = false
-    @State var isAddingFriend: Bool = false
-    @State var isAddingLocation: Bool = false
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -67,6 +67,8 @@ struct WarbandDetailView: View {
                     }
                     .padding(.horizontal)
                     
+                    NotesView(warbandVM: warbandVM, warband: warband)
+                    
                     HStack {
                         Text(isEditingThreats ? "Editing Threats..." : "Threat Levels")
                             .font(.headline)
@@ -96,97 +98,17 @@ struct WarbandDetailView: View {
                 }
                 
                 Group {
-                    HStack {
-                        Text("Friends Known")
-                            .font(.headline)
-                            .fontWeight(.heavy)
-                            .padding(.leading)
-                            .padding(.top)
-                        Spacer()
-                        Button {
-                            isAddingFriend.toggle()
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .padding(.trailing)
-                                .foregroundColor(.accentColor)
-                        }
-                    }
                     
-                    Divider()
-                        .padding(.horizontal)
+                    FriendsKnownView(warbandVM: warbandVM, warband: warband)
                     
-                    FriendsKnownView(warbandVM: warbandVM, warband: warband, isAddingFriend: $isAddingFriend)
-                        .padding(.horizontal)
-                    
-                    HStack {
-                        Text("Hidden Locations")
-                            .font(.headline)
-                            .fontWeight(.heavy)
-                            .padding(.leading)
-                            .padding(.top)
-                        Spacer()
-                        Button {
-                            isAddingLocation.toggle()
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .padding(.trailing)
-                                .foregroundColor(.accentColor)
-                        }
-                    }
-                    
-                    Divider()
-                        .padding(.horizontal)
-                    
-                    HiddenLocationsView(warbandVM: warbandVM, warband: warband, isAddingLocation: $isAddingLocation)
-                        .padding(.horizontal)
-                    
-                    HStack {
-                        Text("Equipment Stash")
-                            .font(.headline)
-                            .fontWeight(.heavy)
-                            .padding(.leading)
-                            .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            CreateItemView(warbandVM: warbandVM, warband: warband, placement: .stash)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .padding(.trailing)
-                                .foregroundColor(.accentColor)
-                        }
-                    }
-                    
-                    Divider()
-                        .padding(.horizontal)
+                    HiddenLocationsView(warbandVM: warbandVM, warband: warband)
                     
                     EquipmentStashView(warbandVM: warbandVM, warband: warband)
-                        .padding(.horizontal)
-                    
-                }
-                
-                Group {
-                    HStack {
-                        Text("Backpack")
-                            .font(.headline)
-                            .fontWeight(.heavy)
-                            .padding(.leading)
-                            .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            CreateItemView(warbandVM: warbandVM, warband: warband, placement: .backpack)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .padding(.trailing)
-                                .foregroundColor(.accentColor)
-                        }
-                    }
-                    
-                    Divider()
-                        .padding(.horizontal)
                     
                     BackpackView(warbandVM: warbandVM, warband: warband)
-                        .padding(.horizontal)
                 }
+                
+                
             }
         }
         .navigationTitle(warband.name ?? "New Warband")

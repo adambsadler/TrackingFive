@@ -29,6 +29,7 @@
 		F99999C0293122F9004FA16B /* NewItemPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999BF293122F9004FA16B /* NewItemPlacement.swift */; };
 		F99999C229315995004FA16B /* CreateItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C129315995004FA16B /* CreateItemView.swift */; };
 		F99999C429328ABF004FA16B /* BackpackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C329328ABF004FA16B /* BackpackView.swift */; };
+		F99999C62932FC2F004FA16B /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C52932FC2F004FA16B /* NotesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		F99999BF293122F9004FA16B /* NewItemPlacement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemPlacement.swift; sourceTree = "<group>"; };
 		F99999C129315995004FA16B /* CreateItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemView.swift; sourceTree = "<group>"; };
 		F99999C329328ABF004FA16B /* BackpackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackpackView.swift; sourceTree = "<group>"; };
+		F99999C52932FC2F004FA16B /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				F99999BD29311693004FA16B /* EquipmentStashView.swift */,
 				F99999C129315995004FA16B /* CreateItemView.swift */,
 				F99999C329328ABF004FA16B /* BackpackView.swift */,
+				F99999C52932FC2F004FA16B /* NotesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */,
 				F971DF4A291FE9E5002418A0 /* Origin.swift in Sources */,
 				F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */,
+				F99999C62932FC2F004FA16B /* NotesView.swift in Sources */,
 				F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */,
 				F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */,
 				F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */,

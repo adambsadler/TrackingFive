@@ -13,6 +13,22 @@ struct EquipmentStashView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Equipment Stash")
+                    .font(.headline)
+                    .fontWeight(.heavy)
+                    .padding(.top)
+                Spacer()
+                NavigationLink {
+                    CreateItemView(warbandVM: warbandVM, warband: warband, placement: .stash)
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .foregroundColor(.accentColor)
+                }
+            }
+            
+            Divider()
+            
             if !warbandVM.stashedItems.isEmpty {
                 HStack {
                     Text("Items")
@@ -88,6 +104,7 @@ struct EquipmentStashView: View {
                 }
             }
         }
+        .padding(.horizontal)
     }
 }
 

@@ -22,6 +22,8 @@ class WarbandViewModel: ObservableObject {
     @Published var itemsInBackpack: [EquipmentItem] = []
     @Published var weaponsInBackpack: [Weapon] = []
     @Published var armorInBackpack: [Armor] = []
+    @Published var contracts: [Contract] = []
+    @Published var notes: [Note] = []
     
     func loadWarbandData(warband: Warband) {
         getWarbandFriends(warband: warband)
@@ -32,6 +34,8 @@ class WarbandViewModel: ObservableObject {
         getBackpackItems(warband: warband)
         getBackpackWeapons(warband: warband)
         getBackpackArmor(warband: warband)
+        getContracts(warband: warband)
+        getNotes(warband: warband)
     }
     
     func saveData() {
@@ -88,6 +92,26 @@ class WarbandViewModel: ObservableObject {
     
     func deleteThreat(threat: Threat) {
         context.delete(threat)
+        
+        saveData()
+    }
+    
+    func createNote(content: String, warband: Warband) {
+        let newNote = Note(context: context)
+        newNote.content = content
+        warband.addToNotes(newNote)
+        
+        notes.append(newNote)
+        
+        saveData()
+    }
+    
+    func deleteNote(note: Note) {
+        notes.removeAll { savedNote in
+            note == savedNote
+        }
+        
+        context.delete(note)
         
         saveData()
     }
@@ -447,6 +471,46 @@ class WarbandViewModel: ObservableObject {
         } catch {
             let error = error as NSError
             print("Error fetching backpack armor: \(error)")
+        }
+    }
+    
+    func getContracts(warband: Warband) {
+        contracts.removeAll()
+        
+        let fetchRequest: NSFetchRequest<Contract>
+        fetchRequest = Contract.fetchRequest()
+        
+        do {
+            let warbandContracts = try context.fetch(fetchRequest)
+            
+            for contract in warbandContracts {
+                if contract.ofWarband == warband {
+                    contracts.append(contract)
+                }
+            }
+        } catch {
+            let error = error as NSError
+            print("Error fetching contracts: \(error)")
+        }
+    }
+    
+    func getNotes(warband: Warband) {
+        notes.removeAll()
+        
+        let fetchRequest: NSFetchRequest<Note>
+        fetchRequest = Note.fetchRequest()
+        
+        do {
+            let warbandNotes = try context.fetch(fetchRequest)
+            
+            for note in warbandNotes {
+                if note.ofWarband == warband {
+                    notes.append(note)
+                }
+            }
+        } catch {
+            let error = error as NSError
+            print("Error fetching notes: \(error)")
         }
     }
     

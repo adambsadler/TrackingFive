@@ -10,11 +10,27 @@ import SwiftUI
 struct HiddenLocationsView: View {
     @ObservedObject var warbandVM: WarbandViewModel
     @ObservedObject var warband: Warband
-    @Binding var isAddingLocation: Bool
+    @State var isAddingLocation: Bool = false
     @State var newLocationName: String = ""
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Hidden Locations")
+                    .font(.headline)
+                    .fontWeight(.heavy)
+                    .padding(.top)
+                Spacer()
+                Button {
+                    isAddingLocation.toggle()
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .foregroundColor(.accentColor)
+                }
+            }
+            
+            Divider()
+            
             ForEach(warbandVM.hiddenLocations, id: \.self) { location in
                 if let locationName = location.name {
                     HStack {
@@ -32,6 +48,7 @@ struct HiddenLocationsView: View {
                 }
             }
         }
+        .padding(.horizontal)
         .alert("Add Hidden Location", isPresented: $isAddingLocation) {
             TextField("Location Name", text: $newLocationName)
                 .disableAutocorrection(true)
@@ -55,6 +72,6 @@ struct HiddenLocationsView_Previews: PreviewProvider {
         let previewWarband = Warband(context: viewContext)
         previewWarband.name = "The Brightguard"
         
-        return HiddenLocationsView(warbandVM: WarbandViewModel(), warband: previewWarband, isAddingLocation: .constant(false))
+        return HiddenLocationsView(warbandVM: WarbandViewModel(), warband: previewWarband, isAddingLocation: false)
     }
 }
