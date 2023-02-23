@@ -30,6 +30,10 @@
 		F99999C229315995004FA16B /* CreateItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C129315995004FA16B /* CreateItemView.swift */; };
 		F99999C429328ABF004FA16B /* BackpackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C329328ABF004FA16B /* BackpackView.swift */; };
 		F99999C62932FC2F004FA16B /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99999C52932FC2F004FA16B /* NotesView.swift */; };
+		F9A4C10829A7C1900066ECD5 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4C10729A7C1900066ECD5 /* CharactersView.swift */; };
+		F9A4C10A29A7EFF30066ECD5 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4C10929A7EFF30066ECD5 /* CharacterListView.swift */; };
+		F9A4C10E29A7F58C0066ECD5 /* CharacterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4C10D29A7F58C0066ECD5 /* CharacterType.swift */; };
+		F9A4C11029A7F7220066ECD5 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4C10F29A7F7220066ECD5 /* CreateCharacterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		F99999C129315995004FA16B /* CreateItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemView.swift; sourceTree = "<group>"; };
 		F99999C329328ABF004FA16B /* BackpackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackpackView.swift; sourceTree = "<group>"; };
 		F99999C52932FC2F004FA16B /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		F9A4C10729A7C1900066ECD5 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
+		F9A4C10929A7EFF30066ECD5 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		F9A4C10D29A7F58C0066ECD5 /* CharacterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterType.swift; sourceTree = "<group>"; };
+		F9A4C10F29A7F7220066ECD5 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,7 @@
 				F971DF6829214C50002418A0 /* WeaponType.swift */,
 				F99999B5292BEF9D004FA16B /* ThreatNumber.swift */,
 				F99999BF293122F9004FA16B /* NewItemPlacement.swift */,
+				F9A4C10D29A7F58C0066ECD5 /* CharacterType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +147,9 @@
 				F99999C129315995004FA16B /* CreateItemView.swift */,
 				F99999C329328ABF004FA16B /* BackpackView.swift */,
 				F99999C52932FC2F004FA16B /* NotesView.swift */,
+				F9A4C10729A7C1900066ECD5 /* CharactersView.swift */,
+				F9A4C10929A7EFF30066ECD5 /* CharacterListView.swift */,
+				F9A4C10F29A7F7220066ECD5 /* CreateCharacterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,7 +245,9 @@
 				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
 				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
 				F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */,
+				F9A4C10E29A7F58C0066ECD5 /* CharacterType.swift in Sources */,
 				F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */,
+				F9A4C10829A7C1900066ECD5 /* CharactersView.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
 				F99999C429328ABF004FA16B /* BackpackView.swift in Sources */,
@@ -243,7 +257,9 @@
 				F971DF4A291FE9E5002418A0 /* Origin.swift in Sources */,
 				F971DF6429202951002418A0 /* WarbandViewModel.swift in Sources */,
 				F99999C62932FC2F004FA16B /* NotesView.swift in Sources */,
+				F9A4C11029A7F7220066ECD5 /* CreateCharacterView.swift in Sources */,
 				F971DF6B2922934E002418A0 /* CrewListView.swift in Sources */,
+				F9A4C10A29A7EFF30066ECD5 /* CharacterListView.swift in Sources */,
 				F99999B2292927A8004FA16B /* EditWarbandDetailsView.swift in Sources */,
 				F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */,
 				F99999B4292BE8E1004FA16B /* ThreatLevelsView.swift in Sources */,

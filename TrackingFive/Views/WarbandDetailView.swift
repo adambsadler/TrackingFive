@@ -106,6 +106,8 @@ struct WarbandDetailView: View {
                     EquipmentStashView(warbandVM: warbandVM, warband: warband)
                     
                     BackpackView(warbandVM: warbandVM, warband: warband)
+                    
+                    CharactersView(warbandVM: warbandVM, warband: warband)
                 }
                 
                 
