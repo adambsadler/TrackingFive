@@ -56,7 +56,7 @@ class WarbandViewModel: ObservableObject {
         saveData()
     }
     
-    func createCharacter(warband: Warband, type: CharacterType, name: String, origin: String, agility: Int, speed: Int, dash: Int, combat: Int, toughness: Int, luck: Int, will: Int, casting: Int) {
+    func createCharacter(warband: Warband, type: CharacterType, name: String, origin: String? = nil, agility: Int, speed: Int, dash: Int, combat: Int, toughness: Int, luck: Int, will: Int, casting: Int) {
         switch type {
         case .hero:
             let newHero = Hero(context: context)
@@ -88,6 +88,96 @@ class WarbandViewModel: ObservableObject {
             
             saveData()
         }
+    }
+    
+    func updateHero(hero: Hero, name: String, origin: String, agility: Int, speed: Int, dash: Int, combat: Int, toughness: Int, luck: Int, will: Int, casting: Int, experience: Int) {
+        hero.name = name
+        hero.origin = origin
+        hero.agility = Int64(agility)
+        hero.speed = Int64(speed)
+        hero.dashSpeed = Int64(dash)
+        hero.combatSkill = Int64(combat)
+        hero.toughness = Int64(toughness)
+        hero.luck = Int64(luck)
+        hero.will = Int64(will)
+        hero.casting = Int64(casting)
+        hero.experience = Int64(experience)
+        
+        saveData()
+    }
+    
+    func addSkillToHero(hero: Hero, name: String?, rules: String?) {
+        let skill = Skill(context: context)
+        skill.name = name
+        skill.rules = rules
+        hero.addToSkills(skill)
+        
+        saveData()
+    }
+    
+    func deleteSkill(skill: Skill) {
+        context.delete(skill)
+        
+        saveData()
+    }
+    
+    func addSpellToHero(hero: Hero, incantation: Int, name: String?, rules: String?) {
+        let spell = Spell(context: context)
+        spell.incantation = Int64(incantation)
+        spell.name = name
+        spell.rules = rules
+        hero.addToSpells(spell)
+        
+        saveData()
+    }
+    
+    func deleteSpell(spell: Spell) {
+        context.delete(spell)
+        
+        saveData()
+    }
+    
+    func deleteHero(hero: Hero) {
+        heroes.removeAll { savedHero in
+            hero == savedHero
+        }
+        
+        context.delete(hero)
+        
+        saveData()
+    }
+    
+    func updateFollower(follower: Follower, name: String, agility: Int, speed: Int, dash: Int, combat: Int, toughness: Int, luck: Int, will: Int, casting: Int) {
+        follower.name = name
+        follower.agility = Int64(agility)
+        follower.speed = Int64(speed)
+        follower.dashSpeed = Int64(dash)
+        follower.combatSkill = Int64(combat)
+        follower.toughness = Int64(toughness)
+        follower.luck = Int64(luck)
+        follower.will = Int64(will)
+        follower.casting = Int64(casting)
+        
+        saveData()
+    }
+    
+    func addSkillToFollower(follower: Follower, name: String?, rules: String?) {
+        let skill = Skill(context: context)
+        skill.name = name
+        skill.rules = rules
+        follower.addToSkills(skill)
+        
+        saveData()
+    }
+    
+    func deleteFollower(follower: Follower) {
+        followers.removeAll { savedFollower in
+            follower == savedFollower
+        }
+        
+        context.delete(follower)
+        
+        saveData()
     }
     
     func createThreat(name: String, number: ThreatNumber, warband: Warband) {
@@ -502,9 +592,17 @@ class WarbandViewModel: ObservableObject {
                 print("Unable to add new armor to warband backpack because there was no warband passed into \(#function)")
             }
         case .hero:
-            return
+            if let hero = hero {
+                addArmorToHero(armor: newArmor, hero: hero)
+            } else {
+                print("Unable to add new armor to hero because there was no hero passed into \(#function)")
+            }
         case .follower:
-            return
+            if let follower = follower {
+                addArmorToFollower(armor: newArmor, follower: follower)
+            } else {
+                print("Unable to add new armor to follower because there was no follower passed into \(#function)")
+            }
         }
         
         saveData()

@@ -146,6 +146,9 @@ struct CreateCharacterView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
+                
+                Text("**Note:** You can add skills, spells, and/or equipment to this character after creation")
+                    .padding()
             }
             
             

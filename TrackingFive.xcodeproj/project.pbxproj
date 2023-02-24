@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9479A3129A90499001F33F6 /* HeroDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3029A90499001F33F6 /* HeroDetailView.swift */; };
+		F9479A3329A90875001F33F6 /* EditHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3229A90875001F33F6 /* EditHeroView.swift */; };
+		F9479A3529A9148B001F33F6 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3429A9148B001F33F6 /* CharacterDetailView.swift */; };
+		F9479A3729A92B42001F33F6 /* CreateHeroSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3629A92B42001F33F6 /* CreateHeroSkillView.swift */; };
 		F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF30291FE784002418A0 /* TrackingFiveApp.swift */; };
 		F971DF33291FE784002418A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF32291FE784002418A0 /* ContentView.swift */; };
 		F971DF35291FE785002418A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F971DF34291FE785002418A0 /* Assets.xcassets */; };
@@ -37,6 +41,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F9479A3029A90499001F33F6 /* HeroDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailView.swift; sourceTree = "<group>"; };
+		F9479A3229A90875001F33F6 /* EditHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHeroView.swift; sourceTree = "<group>"; };
+		F9479A3429A9148B001F33F6 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		F9479A3629A92B42001F33F6 /* CreateHeroSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHeroSkillView.swift; sourceTree = "<group>"; };
 		F971DF2D291FE784002418A0 /* TrackingFive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingFive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F971DF30291FE784002418A0 /* TrackingFiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingFiveApp.swift; sourceTree = "<group>"; };
 		F971DF32291FE784002418A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -150,6 +158,10 @@
 				F9A4C10729A7C1900066ECD5 /* CharactersView.swift */,
 				F9A4C10929A7EFF30066ECD5 /* CharacterListView.swift */,
 				F9A4C10F29A7F7220066ECD5 /* CreateCharacterView.swift */,
+				F9479A3029A90499001F33F6 /* HeroDetailView.swift */,
+				F9479A3229A90875001F33F6 /* EditHeroView.swift */,
+				F9479A3429A9148B001F33F6 /* CharacterDetailView.swift */,
+				F9479A3629A92B42001F33F6 /* CreateHeroSkillView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,12 +255,15 @@
 				F971DF3A291FE785002418A0 /* Persistence.swift in Sources */,
 				F99999C0293122F9004FA16B /* NewItemPlacement.swift in Sources */,
 				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
+				F9479A3529A9148B001F33F6 /* CharacterDetailView.swift in Sources */,
 				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
 				F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */,
 				F9A4C10E29A7F58C0066ECD5 /* CharacterType.swift in Sources */,
 				F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */,
+				F9479A3729A92B42001F33F6 /* CreateHeroSkillView.swift in Sources */,
 				F9A4C10829A7C1900066ECD5 /* CharactersView.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
+				F9479A3129A90499001F33F6 /* HeroDetailView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
 				F99999C429328ABF004FA16B /* BackpackView.swift in Sources */,
 				F99999BC292E71DC004FA16B /* HiddenLocationsView.swift in Sources */,
@@ -264,6 +279,7 @@
 				F99999BA292D9FC8004FA16B /* FriendsKnownView.swift in Sources */,
 				F99999B4292BE8E1004FA16B /* ThreatLevelsView.swift in Sources */,
 				F99999C229315995004FA16B /* CreateItemView.swift in Sources */,
+				F9479A3329A90875001F33F6 /* EditHeroView.swift in Sources */,
 				F99999BE29311693004FA16B /* EquipmentStashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,9 +20,11 @@ struct CharacterListView: View {
         VStack {
             HStack {
                 Text(name)
+                    .foregroundColor(.white)
                     .bold()
                 Spacer()
                 Text(type.localizedName)
+                    .foregroundColor(.white)
                     .bold()
             }
             .padding()
@@ -30,31 +32,39 @@ struct CharacterListView: View {
             HStack(spacing: 25) {
                 VStack {
                     Text("Agility")
+                        .foregroundColor(.white)
                         .bold()
                     Text("\(agility)")
+                        .foregroundColor(.white)
                 }
                 
                 VStack {
                     Text("Speed")
+                        .foregroundColor(.white)
                         .bold()
                     Text("\(speed)\" / +\(dash)\"")
+                        .foregroundColor(.white)
                 }
                 
                 VStack {
                     Text("Combat")
+                        .foregroundColor(.white)
                         .bold()
                     Text("+\(combat)")
+                        .foregroundColor(.white)
                 }
                 
                 VStack {
                     Text("Tough")
+                        .foregroundColor(.white)
                         .bold()
                     Text("\(toughness)")
+                        .foregroundColor(.white)
                 }
             }
             .padding(.bottom)
         }
-        .background(.tertiary)
+        .background(.gray)
         .cornerRadius(15)
         .padding()
     }

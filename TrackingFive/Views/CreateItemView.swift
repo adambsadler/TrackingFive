@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateItemView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var warbandVM: WarbandViewModel
-    @ObservedObject var warband: Warband
+    var warband: Warband? = nil
     @State var isCreatingItem: Bool = false
     @State var isCreatingWeapon: Bool = false
     @State var isCreatingArmor: Bool = false
@@ -204,7 +204,7 @@ struct CreateItemView: View {
                 
                 if isCreatingItem {
                     Button {
-                        warbandVM.createItem(name: newItemName, rules: newItemRules, placement: placement, warband: warband)
+                        warbandVM.createItem(name: newItemName, rules: newItemRules, placement: placement, warband: warband, hero: hero, follower: follower)
                         resetValues()
                         presentationMode.wrappedValue.dismiss()
                     } label: {
@@ -218,7 +218,7 @@ struct CreateItemView: View {
                 
                 if isCreatingWeapon {
                     Button {
-                        warbandVM.createWeapon(name: newItemName, type: weaponType, range: range, overcomeArmor: overcomeArmor, overcomeToughness: overcomeTough, rules: newItemRules, placement: placement, warband: warband)
+                        warbandVM.createWeapon(name: newItemName, type: weaponType, range: range, overcomeArmor: overcomeArmor, overcomeToughness: overcomeTough, rules: newItemRules, placement: placement, warband: warband, hero: hero, follower: follower)
                         resetValues()
                         presentationMode.wrappedValue.dismiss()
                     } label: {
@@ -232,7 +232,7 @@ struct CreateItemView: View {
                 
                 if isCreatingArmor {
                     Button {
-                        warbandVM.createArmor(name: newItemName, rating: armorRatihg, rules: newItemRules, placement: placement, warband: warband)
+                        warbandVM.createArmor(name: newItemName, rating: armorRatihg, rules: newItemRules, placement: placement, warband: warband, hero: hero, follower: follower)
                         resetValues()
                         presentationMode.wrappedValue.dismiss()
                     } label: {
