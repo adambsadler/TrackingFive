@@ -32,7 +32,7 @@ struct CharactersView: View {
             ForEach(warbandVM.heroes, id: \.self) { hero in
                 if let currentHero = hero {
                     NavigationLink {
-                        HeroDetailView(warbandVM: warbandVM, hero: hero)
+                        HeroDetailView(warbandVM: warbandVM, warband: warband, hero: hero)
                     } label: {
                         CharacterListView(name: currentHero.name ?? "Unknown", type: .hero, agility: Int(currentHero.agility), speed: Int(currentHero.speed), dash: Int(currentHero.dashSpeed), combat: Int(currentHero.combatSkill), toughness: Int(currentHero.toughness))
                     }

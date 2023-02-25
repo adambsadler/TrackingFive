@@ -10,6 +10,7 @@ import SwiftUI
 struct HeroDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var warbandVM: WarbandViewModel
+    @ObservedObject var warband: Warband
     @ObservedObject var hero: Hero
     @State var isEditing: Bool = false
     
@@ -99,7 +100,7 @@ struct HeroDetailView: View {
                             .padding(.top)
                         Spacer()
                         NavigationLink {
-                            // Create spell
+                            CreateSpellView(warbandVM: warbandVM, hero: hero)
                         } label: {
                             Image(systemName: "plus.circle")
                                 .foregroundColor(.accentColor)
@@ -184,7 +185,7 @@ struct HeroDetailView: View {
                                 Text("• \(itemName)")
                                 Spacer()
                                 NavigationLink {
-                                    // item detail view
+                                    ItemDetailView(warbandVM: warbandVM, item: item, movingFrom: .hero, warband: warband)
                                 } label: {
                                     Image(systemName: "questionmark.circle.fill")
                                         .foregroundColor(.accentColor)
@@ -212,6 +213,6 @@ struct HeroDetailView_Previews: PreviewProvider {
         previewHero.name = "Valten"
         previewHero.origin = "Human"
         
-        return HeroDetailView(warbandVM: WarbandViewModel(), hero: previewHero)
+        return HeroDetailView(warbandVM: WarbandViewModel(), warband: previewWarband, hero: previewHero)
     }
 }

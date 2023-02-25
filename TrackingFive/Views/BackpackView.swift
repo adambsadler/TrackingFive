@@ -43,7 +43,7 @@ struct BackpackView: View {
                         Text("• \(itemName)")
                         Spacer()
                         NavigationLink {
-                            // item detail view
+                            ItemDetailView(warbandVM: warbandVM, item: item, movingFrom: .backpack, warband: warband)
                         } label: {
                             Image(systemName: "questionmark.circle.fill")
                                 .foregroundColor(.accentColor)

@@ -1,5 +1,5 @@
 //
-//  CreateHeroSkillView.swift
+//  CreateSpellView.swift
 //  TrackingFive
 //
 //  Created by Adam Sadler on 2/24/23.
@@ -7,39 +7,52 @@
 
 import SwiftUI
 
-struct CreateHeroSkillView: View {
+struct CreateSpellView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var warbandVM: WarbandViewModel
     @ObservedObject var hero: Hero
-    @State var newSkillName: String = ""
-    @State var newSkillRules: String = ""
+    @State var newSpellName: String = ""
+    @State var spellIncantation: Int = 0
+    @State var newSpellRules: String = ""
     
     var body: some View {
         VStack {
-            Text("Create a New Skill")
+            Text("Create a New Spell")
                 .font(.headline)
             
             HStack {
                 Text("Name: ")
                     .fontWeight(.bold)
-                TextField("Skill Name", text: $newSkillName)
+                TextField("Spell Name", text: $newSpellName)
                     .disableAutocorrection(true)
             }
             .padding()
             
             HStack {
+                Text("Incantation: ")
+                    .fontWeight(.bold)
+                Picker("Incantation", selection: $spellIncantation) {
+                    ForEach(5 ..< 9) {
+                        Text("\($0) +")
+                    }
+                }
+                Spacer()
+            }
+            .padding(.horizontal)
+            
+            HStack {
                 Text("Rules: ")
                     .fontWeight(.bold)
-                TextField("Skill Rules", text: $newSkillRules)
+                TextField("Spell Rules", text: $newSpellRules)
                     .disableAutocorrection(true)
             }
             .padding()
             
             Button {
-                warbandVM.addSkillToHero(hero: hero, name: newSkillName, rules: newSkillRules)
+                warbandVM.addSpellToHero(hero: hero, incantation: spellIncantation, name: newSpellName, rules: newSpellRules)
                 presentationMode.wrappedValue.dismiss()
             } label: {
-                Text("Add Skill to Hero")
+                Text("Add Spell to Hero")
                     .padding()
                     .foregroundColor(.white)
                     .background(Color.accentColor)
@@ -52,7 +65,7 @@ struct CreateHeroSkillView: View {
     }
 }
 
-struct CreateHeroSkillView_Previews: PreviewProvider {
+struct CreateSpellView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = PersistenceController.preview.container.viewContext
         let previewWarband = Warband(context: viewContext)
@@ -61,6 +74,6 @@ struct CreateHeroSkillView_Previews: PreviewProvider {
         previewHero.name = "Valten"
         previewHero.origin = "Human"
         
-        return CreateHeroSkillView(warbandVM: WarbandViewModel(), hero: previewHero)
+        return CreateSpellView(warbandVM: WarbandViewModel(), hero: previewHero)
     }
 }

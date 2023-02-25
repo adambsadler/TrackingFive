@@ -43,7 +43,7 @@ struct EquipmentStashView: View {
                         Text("• \(itemName)")
                         Spacer()
                         NavigationLink {
-                            // item detail view
+                            ItemDetailView(warbandVM: warbandVM, item: item, movingFrom: .stash, warband: warband)
                         } label: {
                             Image(systemName: "questionmark.circle.fill")
                                 .foregroundColor(.accentColor)
