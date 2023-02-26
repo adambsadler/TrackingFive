@@ -1,17 +1,17 @@
 //
-//  ItemDetailView.swift
+//  WeaponDetailView.swift
 //  TrackingFive
 //
-//  Created by Adam Sadler on 2/24/23.
+//  Created by Adam Sadler on 2/25/23.
 //
 
 import SwiftUI
 
-struct ItemDetailView: View {
+struct WeaponDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var warbandVM: WarbandViewModel
-    @ObservedObject var item: EquipmentItem
-    @State var isMovingItem: Bool = false
+    @ObservedObject var weapon: Weapon
+    @State var isMovingWeapon: Bool = false
     @State var isMovingToBackpack: Bool = false
     @State var isMovingToStash: Bool = false
     @State var isMovingToHero: Bool = false
@@ -22,37 +22,73 @@ struct ItemDetailView: View {
     var fromHero: Hero? = nil
     var fromFollower: Follower? = nil
     @ObservedObject var warband: Warband
-    @State var heroToGetItem: Hero? = nil
-    @State var followerToGetItem: Follower? = nil
+    @State var heroToGetWeapon: Hero? = nil
+    @State var followerToGetWeapon: Follower? = nil
     
     var body: some View {
         VStack {
-            Text("Item Details")
+            Text("Weapon Details")
                 .font(.headline)
             
             ScrollView {
-                HStack {
-                    Text("Name: ")
-                        .fontWeight(.bold)
-                    Text(item.name ?? "Unknown Item")
-                    Spacer()
+                Group {
+                    HStack {
+                        Text("Name: ")
+                            .fontWeight(.bold)
+                        Text(weapon.name ?? "Unknown Weapon")
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    HStack {
+                        Text("Type: ")
+                            .fontWeight(.bold)
+                        Text(weapon.type ?? "Unknown Type")
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    if weapon.type == WeaponType.ranged.rawValue {
+                        HStack {
+                            Text("Range: ")
+                                .fontWeight(.bold)
+                            Text("\(weapon.range)")
+                            Spacer()
+                        }
+                        .padding()
+                    }
+                    
+                    HStack {
+                        Text("Overcome Armor: ")
+                            .fontWeight(.bold)
+                        Text("\(weapon.overcomeArmor)")
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    HStack {
+                        Text("Overcome Toughness: ")
+                            .fontWeight(.bold)
+                        Text("\(weapon.overcomeToughness)")
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    HStack {
+                        Text("Rules: ")
+                            .fontWeight(.bold)
+                        Text(weapon.rules ?? "No special rules")
+                        Spacer()
+                    }
+                    .padding()
                 }
-                .padding()
-                
-                HStack {
-                    Text("Rules: ")
-                        .fontWeight(.bold)
-                    Text(item.rules ?? "No special rules")
-                    Spacer()
-                }
-                .padding()
                 
                 HStack {
                     Button {
-                        warbandVM.deleteItem(item: item)
+                        warbandVM.deleteWeapon(weapon: weapon)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
-                        Text("Delete Item")
+                        Text("Delete Weapon")
                             .padding()
                             .foregroundColor(.white)
                             .background(Color.red)
@@ -60,17 +96,17 @@ struct ItemDetailView: View {
                     }
                     
                     Button {
-                        isMovingItem.toggle()
+                        isMovingWeapon.toggle()
                     } label: {
-                        Text(isMovingItem ? "Move to..." : "Move Item")
+                        Text(isMovingWeapon ? "Move to..." : "Move Weapon")
                             .padding()
                             .foregroundColor(.white)
-                            .background(isMovingItem ? Color.gray : Color.accentColor)
+                            .background(isMovingWeapon ? Color.gray : Color.accentColor)
                             .cornerRadius(15)
                     }
                 }
              
-                if isMovingItem {
+                if isMovingWeapon {
                     HStack {
                         if movingFrom != .stash {
                             Button {
@@ -139,7 +175,7 @@ struct ItemDetailView: View {
                     .padding(.vertical)
                     
                     if isMovingToHero {
-                        Picker("Select hero", selection: $heroToGetItem) {
+                        Picker("Select hero", selection: $heroToGetWeapon) {
                             Text("None")
                                 .tag(Hero?.none)
                             
@@ -147,15 +183,15 @@ struct ItemDetailView: View {
                                 Text(hero.name ?? "Unknown hero")
                                     .tag(Hero?.some(hero))
                             }
-                        }.onChange(of: heroToGetItem) { newValue in
-                            if heroToGetItem != nil {
+                        }.onChange(of: heroToGetWeapon) { newValue in
+                            if heroToGetWeapon != nil {
                                 readyToConfirm = true
                             }
                         }
                     }
                     
                     if isMovingToFollower {
-                        Picker("Select follower", selection: $followerToGetItem) {
+                        Picker("Select follower", selection: $followerToGetWeapon) {
                             ForEach(warbandVM.followers, id: \.self) { follower in
                                 Text("None")
                                     .tag(Follower?.none)
@@ -163,8 +199,8 @@ struct ItemDetailView: View {
                                 Text(follower.name ?? "Unknown follower")
                                     .tag(Follower?.some(follower))
                             }
-                        }.onChange(of: followerToGetItem) { newValue in
-                            if followerToGetItem != nil {
+                        }.onChange(of: followerToGetWeapon) { newValue in
+                            if followerToGetWeapon != nil {
                                 readyToConfirm = true
                             }
                         }
@@ -172,10 +208,10 @@ struct ItemDetailView: View {
                     
                     if readyToConfirm {
                         Button {
-                            warbandVM.moveItem(warband: warband, item: item, from: movingFrom, fromHero: fromHero, fromFollower: fromFollower, to: movingTo, toHero: heroToGetItem, toFollower: followerToGetItem)
+                            warbandVM.moveWeapon(warband: warband, weapon: weapon, from: movingFrom, fromHero: fromHero, fromFollower: fromFollower, to: movingTo, toHero: heroToGetWeapon, toFollower: followerToGetWeapon)
                             presentationMode.wrappedValue.dismiss()
                         } label: {
-                            Text("Move Item")
+                            Text("Move Weapon")
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.accentColor)
@@ -190,7 +226,7 @@ struct ItemDetailView: View {
     }
 }
 
-struct ItemDetailView_Previews: PreviewProvider {
+struct WeaponDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = PersistenceController.preview.container.viewContext
         let previewWarband = Warband(context: viewContext)
@@ -198,10 +234,10 @@ struct ItemDetailView_Previews: PreviewProvider {
         let previewHero = Hero(context: viewContext)
         previewHero.name = "Valten"
         previewHero.origin = "Human"
-        let previewItem = EquipmentItem(context: viewContext)
-        previewItem.name = "Silvertree Leaf"
-        previewItem.rules = "Reroll post-game injuries"
+        let previewWeapon = Weapon(context: viewContext)
+        previewWeapon.name = "Bastard Sword"
+        previewWeapon.rules = "None"
         
-        return ItemDetailView(warbandVM: WarbandViewModel(), item: previewItem, movingFrom: .backpack, warband: previewWarband)
+        return WeaponDetailView(warbandVM: WarbandViewModel(), weapon: previewWeapon, movingFrom: .backpack, warband: previewWarband)
     }
 }

@@ -13,6 +13,9 @@
 		F9479A3729A92B42001F33F6 /* CreateHeroSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3629A92B42001F33F6 /* CreateHeroSkillView.swift */; };
 		F9479A3929A941FB001F33F6 /* CreateSpellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3829A941FB001F33F6 /* CreateSpellView.swift */; };
 		F9479A3B29A947ED001F33F6 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3A29A947ED001F33F6 /* ItemDetailView.swift */; };
+		F9479A3D29AACB42001F33F6 /* ArmorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3C29AACB42001F33F6 /* ArmorDetailView.swift */; };
+		F9479A4029AACE0B001F33F6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9479A3F29AACE0A001F33F6 /* CloudKit.framework */; };
+		F9479A4329AADA00001F33F6 /* WeaponDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A4229AADA00001F33F6 /* WeaponDetailView.swift */; };
 		F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF30291FE784002418A0 /* TrackingFiveApp.swift */; };
 		F971DF33291FE784002418A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF32291FE784002418A0 /* ContentView.swift */; };
 		F971DF35291FE785002418A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F971DF34291FE785002418A0 /* Assets.xcassets */; };
@@ -49,6 +52,10 @@
 		F9479A3629A92B42001F33F6 /* CreateHeroSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHeroSkillView.swift; sourceTree = "<group>"; };
 		F9479A3829A941FB001F33F6 /* CreateSpellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpellView.swift; sourceTree = "<group>"; };
 		F9479A3A29A947ED001F33F6 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		F9479A3C29AACB42001F33F6 /* ArmorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorDetailView.swift; sourceTree = "<group>"; };
+		F9479A3F29AACE0A001F33F6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F9479A4129AACECC001F33F6 /* TrackingFive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrackingFive.entitlements; sourceTree = "<group>"; };
+		F9479A4229AADA00001F33F6 /* WeaponDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponDetailView.swift; sourceTree = "<group>"; };
 		F971DF2D291FE784002418A0 /* TrackingFive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingFive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F971DF30291FE784002418A0 /* TrackingFiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingFiveApp.swift; sourceTree = "<group>"; };
 		F971DF32291FE784002418A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,17 +92,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9479A4029AACE0B001F33F6 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F9479A3E29AACE0A001F33F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9479A3F29AACE0A001F33F6 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F971DF24291FE784002418A0 = {
 			isa = PBXGroup;
 			children = (
 				F971DF2F291FE784002418A0 /* TrackingFive */,
 				F971DF2E291FE784002418A0 /* Products */,
+				F9479A3E29AACE0A001F33F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +127,7 @@
 		F971DF2F291FE784002418A0 /* TrackingFive */ = {
 			isa = PBXGroup;
 			children = (
+				F9479A4129AACECC001F33F6 /* TrackingFive.entitlements */,
 				F971DF6529204076002418A0 /* Core Data */,
 				F971DF622920293F002418A0 /* ViewModels */,
 				F971DF5F29202591002418A0 /* Views */,
@@ -168,6 +186,8 @@
 				F9479A3629A92B42001F33F6 /* CreateHeroSkillView.swift */,
 				F9479A3829A941FB001F33F6 /* CreateSpellView.swift */,
 				F9479A3A29A947ED001F33F6 /* ItemDetailView.swift */,
+				F9479A3C29AACB42001F33F6 /* ArmorDetailView.swift */,
+				F9479A4229AADA00001F33F6 /* WeaponDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +293,7 @@
 				F9479A3129A90499001F33F6 /* HeroDetailView.swift in Sources */,
 				F971DF33291FE784002418A0 /* ContentView.swift in Sources */,
 				F99999C429328ABF004FA16B /* BackpackView.swift in Sources */,
+				F9479A4329AADA00001F33F6 /* WeaponDetailView.swift in Sources */,
 				F99999BC292E71DC004FA16B /* HiddenLocationsView.swift in Sources */,
 				F971DF3D291FE785002418A0 /* TrackingFive.xcdatamodeld in Sources */,
 				F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */,
@@ -289,6 +310,7 @@
 				F99999C229315995004FA16B /* CreateItemView.swift in Sources */,
 				F9479A3329A90875001F33F6 /* EditHeroView.swift in Sources */,
 				F99999BE29311693004FA16B /* EquipmentStashView.swift in Sources */,
+				F9479A3D29AACB42001F33F6 /* ArmorDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +436,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrackingFive/TrackingFive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackingFive/Preview Content\"";
-				DEVELOPMENT_TEAM = 58LLR79534;
+				DEVELOPMENT_TEAM = 7SGM899LTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -443,10 +466,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrackingFive/TrackingFive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackingFive/Preview Content\"";
-				DEVELOPMENT_TEAM = 58LLR79534;
+				DEVELOPMENT_TEAM = 7SGM899LTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

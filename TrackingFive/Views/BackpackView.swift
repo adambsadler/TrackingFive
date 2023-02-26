@@ -68,7 +68,7 @@ struct BackpackView: View {
                         Text("• \(weaponName)")
                         Spacer()
                         NavigationLink {
-                            // weapon detail view
+                            WeaponDetailView(warbandVM: warbandVM, weapon: weapon, movingFrom: .backpack, warband: warband)
                         } label: {
                             Image(systemName: "questionmark.circle.fill")
                                 .foregroundColor(.accentColor)
@@ -93,7 +93,7 @@ struct BackpackView: View {
                         Text("• \(armorName)")
                         Spacer()
                         NavigationLink {
-                            // armor detail view
+                            ArmorDetailView(warbandVM: warbandVM, armor: armor, movingFrom: .backpack, warband: warband)
                         } label: {
                             Image(systemName: "questionmark.circle.fill")
                                 .foregroundColor(.accentColor)

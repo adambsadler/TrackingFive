@@ -357,39 +357,33 @@ class WarbandViewModel: ObservableObject {
         saveData()
     }
     
-    func moveItem(item: EquipmentItem, from: NewItemPlacement, to: NewItemPlacement, warband: Warband? = nil, hero: Hero? = nil, follower: Follower? = nil) {
+    func moveItem(warband: Warband, item: EquipmentItem, from: NewItemPlacement, fromHero: Hero? = nil, fromFollower: Follower? = nil, to: NewItemPlacement, toHero: Hero? = nil, toFollower: Follower? = nil) {
         switch from {
         case .stash:
             stashedItems.removeAll { savedItem in
                 item == savedItem
             }
             
-            if let warband = warband {
-                warband.removeFromStashedItems(item)
-                saveData()
-            } else {
-                print("Unable to remove item from warband stash because there was no warband passed into \(#function)")
-            }
+            warband.removeFromStashedItems(item)
+            saveData()
+            
         case .backpack:
             itemsInBackpack.removeAll { savedItem in
                 item == savedItem
             }
             
-            if let warband = warband {
-                warband.removeFromItemsInBackpack(item)
-                saveData()
-            } else {
-                print("Unable to remove item from backpack because there was no warband passed into \(#function)")
-            }
+            warband.removeFromItemsInBackpack(item)
+            saveData()
+            
         case .hero:
-            if let hero = hero {
+            if let hero = fromHero {
                 hero.removeFromItems(item)
                 saveData()
             } else {
                 print("Unable to remove item from hero because there was no hero passed into \(#function)")
             }
         case .follower:
-            if let follower = follower {
+            if let follower = fromFollower {
                 follower.removeFromItems(item)
                 saveData()
             } else {
@@ -399,25 +393,17 @@ class WarbandViewModel: ObservableObject {
         
         switch to {
         case .stash:
-            if let warband = warband {
-                addItemToStash(item: item, warband: warband)
-            } else {
-                print("Unable to move item to warband stash because there was no warband passed into \(#function)")
-            }
+            addItemToStash(item: item, warband: warband)
         case .backpack:
-            if let warband = warband {
-                addItemToBackpack(item: item, warband: warband)
-            } else {
-                print("Unable to move item to warband backpack because there was no warband passed into \(#function)")
-            }
+            addItemToBackpack(item: item, warband: warband)
         case .hero:
-            if let hero = hero {
+            if let hero = toHero {
                 addItemToHero(item: item, hero: hero)
             } else {
                 print("Unable to move item to hero because there was no hero passed into \(#function)")
             }
         case .follower:
-            if let follower = follower {
+            if let follower = toFollower {
                 addItemToFollower(item: item, follower: follower)
             } else {
                 print("Unable to move item to follower because there was no follower passed into \(#function)")
@@ -504,39 +490,33 @@ class WarbandViewModel: ObservableObject {
         saveData()
     }
     
-    func moveWeapon(weapon: Weapon, from: NewItemPlacement, to: NewItemPlacement, warband: Warband? = nil, hero: Hero? = nil, follower: Follower? = nil) {
+    func moveWeapon(warband: Warband, weapon: Weapon, from: NewItemPlacement, fromHero: Hero? = nil, fromFollower: Follower? = nil, to: NewItemPlacement, toHero: Hero? = nil, toFollower: Follower? = nil) {
         switch from {
         case .stash:
             stashedWeapons.removeAll { savedWeapon in
                 weapon == savedWeapon
             }
             
-            if let warband = warband {
-                warband.removeFromStashedWeapons(weapon)
-                saveData()
-            } else {
-                print("Unable to remove weapon from warband stash because there was no warband passed into \(#function)")
-            }
+            warband.removeFromStashedWeapons(weapon)
+            saveData()
+            
         case .backpack:
             weaponsInBackpack.removeAll { savedWeapon in
                 weapon == savedWeapon
             }
             
-            if let warband = warband {
-                warband.removeFromWeaponsInBackpack(weapon)
-                saveData()
-            } else {
-                print("Unable to remove weapon from backpack because there was no warband passed into \(#function)")
-            }
+            warband.removeFromWeaponsInBackpack(weapon)
+            saveData()
+            
         case .hero:
-            if let hero = hero {
+            if let hero = fromHero {
                 hero.removeFromWeapons(weapon)
                 saveData()
             } else {
                 print("Unable to remove weapon from hero because there was no hero passed into \(#function)")
             }
         case .follower:
-            if let follower = follower {
+            if let follower = fromFollower {
                 follower.removeFromWeapons(weapon)
                 saveData()
             } else {
@@ -546,25 +526,17 @@ class WarbandViewModel: ObservableObject {
         
         switch to {
         case .stash:
-            if let warband = warband {
-                addWeaponToStash(weapon: weapon, warband: warband)
-            } else {
-                print("Unable to move weapon to warband stash because there was no warband passed into \(#function)")
-            }
+            addWeaponToStash(weapon: weapon, warband: warband)
         case .backpack:
-            if let warband = warband {
-                addWeaponToBackpack(weapon: weapon, warband: warband)
-            } else {
-                print("Unable to move weapon to warband backpack because there was no warband passed into \(#function)")
-            }
+            addWeaponToBackpack(weapon: weapon, warband: warband)
         case .hero:
-            if let hero = hero {
+            if let hero = toHero {
                 addWeaponToHero(weapon: weapon, hero: hero)
             } else {
                 print("Unable to move weapon to hero because there was no hero passed into \(#function)")
             }
         case .follower:
-            if let follower = follower {
+            if let follower = toFollower {
                 addWeaponToFollower(weapon: weapon, follower: follower)
             } else {
                 print("Unable to move item to follower because there was no follower passed into \(#function)")
@@ -648,32 +620,26 @@ class WarbandViewModel: ObservableObject {
         saveData()
     }
     
-    func moveArmor(armor: Armor, from: NewItemPlacement, to: NewItemPlacement, warband: Warband? = nil, hero: Hero? = nil, follower: Follower? = nil) {
+    func moveArmor(warband: Warband, armor: Armor, from: NewItemPlacement, fromHero: Hero? = nil, fromFollower: Follower? = nil, to: NewItemPlacement, toHero: Hero? = nil, toFollower: Follower? = nil) {
         switch from {
         case .stash:
             stashedArmor.removeAll { savedArmor in
                 armor == savedArmor
             }
             
-            if let warband = warband {
-                warband.removeFromStashedArmor(armor)
-                saveData()
-            } else {
-                print("Unable to remove armor from warband stash because there was no warband passed into \(#function)")
-            }
+            warband.removeFromStashedArmor(armor)
+            saveData()
+            
         case .backpack:
             armorInBackpack.removeAll { savedArmor in
                 armor == savedArmor
             }
             
-            if let warband = warband {
-                warband.removeFromArmorInBackpack(armor)
-                saveData()
-            } else {
-                print("Unable to remove armor from backpack because there was no warband passed into \(#function)")
-            }
+            warband.removeFromArmorInBackpack(armor)
+            saveData()
+            
         case .hero:
-            if let hero = hero {
+            if let hero = fromHero {
                 armor.ofHero = nil
                 hero.armor = nil
                 saveData()
@@ -681,7 +647,7 @@ class WarbandViewModel: ObservableObject {
                 print("Unable to remove armor from hero because there was no hero passed into \(#function)")
             }
         case .follower:
-            if let follower = follower {
+            if let follower = fromFollower {
                 armor.ofFollower = nil
                 follower.armor = nil
                 saveData()
@@ -692,25 +658,17 @@ class WarbandViewModel: ObservableObject {
         
         switch to {
         case .stash:
-            if let warband = warband {
-                addArmorToStash(armor: armor, warband: warband)
-            } else {
-                print("Unable to move armor to warband stash because there was no warband passed into \(#function)")
-            }
+            addArmorToStash(armor: armor, warband: warband)
         case .backpack:
-            if let warband = warband {
-                addArmorToBackpack(armor: armor, warband: warband)
-            } else {
-                print("Unable to move armor to warband backpack because there was no warband passed into \(#function)")
-            }
+            addArmorToBackpack(armor: armor, warband: warband)
         case .hero:
-            if let hero = hero {
+            if let hero = toHero {
                 addArmorToHero(armor: armor, hero: hero)
             } else {
                 print("Unable to move armor to hero because there was no hero passed into \(#function)")
             }
         case .follower:
-            if let follower = follower {
+            if let follower = toFollower {
                 addArmorToFollower(armor: armor, follower: follower)
             } else {
                 print("Unable to move armor to follower because there was no follower passed into \(#function)")

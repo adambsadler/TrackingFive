@@ -152,7 +152,7 @@ struct HeroDetailView: View {
                             Text("• \(armorName)")
                             Spacer()
                             NavigationLink {
-                                // armor detail view
+                                ArmorDetailView(warbandVM: warbandVM, armor: armor, movingFrom: .hero, fromHero: hero, warband: warband)
                             } label: {
                                 Image(systemName: "questionmark.circle.fill")
                                     .foregroundColor(.accentColor)
@@ -168,7 +168,7 @@ struct HeroDetailView: View {
                                 Text("• \(weaponName)")
                                 Spacer()
                                 NavigationLink {
-                                    // weapon detail view
+                                    WeaponDetailView(warbandVM: warbandVM, weapon: weapon, movingFrom: .hero, fromHero: hero, warband: warband)
                                 } label: {
                                     Image(systemName: "questionmark.circle.fill")
                                         .foregroundColor(.accentColor)
@@ -185,7 +185,7 @@ struct HeroDetailView: View {
                                 Text("• \(itemName)")
                                 Spacer()
                                 NavigationLink {
-                                    ItemDetailView(warbandVM: warbandVM, item: item, movingFrom: .hero, warband: warband)
+                                    ItemDetailView(warbandVM: warbandVM, item: item, movingFrom: .hero, fromHero: hero, warband: warband)
                                 } label: {
                                     Image(systemName: "questionmark.circle.fill")
                                         .foregroundColor(.accentColor)
