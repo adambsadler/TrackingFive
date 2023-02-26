@@ -16,6 +16,8 @@
 		F9479A3D29AACB42001F33F6 /* ArmorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3C29AACB42001F33F6 /* ArmorDetailView.swift */; };
 		F9479A4029AACE0B001F33F6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9479A3F29AACE0A001F33F6 /* CloudKit.framework */; };
 		F9479A4329AADA00001F33F6 /* WeaponDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A4229AADA00001F33F6 /* WeaponDetailView.swift */; };
+		F9479A4529AAE744001F33F6 /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A4429AAE744001F33F6 /* SkillDetailView.swift */; };
+		F9479A4729AAEC28001F33F6 /* SpellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A4629AAEC28001F33F6 /* SpellDetailView.swift */; };
 		F971DF31291FE784002418A0 /* TrackingFiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF30291FE784002418A0 /* TrackingFiveApp.swift */; };
 		F971DF33291FE784002418A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971DF32291FE784002418A0 /* ContentView.swift */; };
 		F971DF35291FE785002418A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F971DF34291FE785002418A0 /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		F9479A3F29AACE0A001F33F6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F9479A4129AACECC001F33F6 /* TrackingFive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrackingFive.entitlements; sourceTree = "<group>"; };
 		F9479A4229AADA00001F33F6 /* WeaponDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponDetailView.swift; sourceTree = "<group>"; };
+		F9479A4429AAE744001F33F6 /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
+		F9479A4629AAEC28001F33F6 /* SpellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailView.swift; sourceTree = "<group>"; };
 		F971DF2D291FE784002418A0 /* TrackingFive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingFive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F971DF30291FE784002418A0 /* TrackingFiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingFiveApp.swift; sourceTree = "<group>"; };
 		F971DF32291FE784002418A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				F9479A3A29A947ED001F33F6 /* ItemDetailView.swift */,
 				F9479A3C29AACB42001F33F6 /* ArmorDetailView.swift */,
 				F9479A4229AADA00001F33F6 /* WeaponDetailView.swift */,
+				F9479A4429AAE744001F33F6 /* SkillDetailView.swift */,
+				F9479A4629AAEC28001F33F6 /* SpellDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,10 +285,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F971DF3A291FE785002418A0 /* Persistence.swift in Sources */,
+				F9479A4529AAE744001F33F6 /* SkillDetailView.swift in Sources */,
 				F99999C0293122F9004FA16B /* NewItemPlacement.swift in Sources */,
 				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
 				F9479A3B29A947ED001F33F6 /* ItemDetailView.swift in Sources */,
 				F9479A3529A9148B001F33F6 /* CharacterDetailView.swift in Sources */,
+				F9479A4729AAEC28001F33F6 /* SpellDetailView.swift in Sources */,
 				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
 				F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */,
 				F9A4C10E29A7F58C0066ECD5 /* CharacterType.swift in Sources */,

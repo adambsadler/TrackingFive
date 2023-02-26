@@ -187,6 +187,7 @@ struct ItemDetailView: View {
             }
             
         }
+        .padding()
     }
 }
 

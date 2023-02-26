@@ -195,6 +195,7 @@ struct ArmorDetailView: View {
             }
             
         }
+        .padding()
     }
 }
 

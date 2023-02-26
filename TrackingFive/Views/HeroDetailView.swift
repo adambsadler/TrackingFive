@@ -82,7 +82,7 @@ struct HeroDetailView: View {
                                 Text("• \(skillName)")
                                 Spacer()
                                 NavigationLink {
-                                    // skill detail view
+                                    SkillDetailView(warbandVM: warbandVM, skill: skill)
                                 } label: {
                                     Image(systemName: "questionmark.circle.fill")
                                         .foregroundColor(.accentColor)
@@ -115,7 +115,7 @@ struct HeroDetailView: View {
                                 Text("• \(spellName)")
                                 Spacer()
                                 NavigationLink {
-                                    // spell detail view
+                                    SpellDetailView(warbandVM: warbandVM, spell: spell)
                                 } label: {
                                     Image(systemName: "questionmark.circle.fill")
                                         .foregroundColor(.accentColor)

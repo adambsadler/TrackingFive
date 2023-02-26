@@ -223,6 +223,7 @@ struct WeaponDetailView: View {
             }
             
         }
+        .padding()
     }
 }
 
