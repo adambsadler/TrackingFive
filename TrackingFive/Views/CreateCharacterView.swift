@@ -135,17 +135,19 @@ struct CreateCharacterView: View {
                 }
                 .padding(.horizontal)
                 
-                HStack {
-                    Text("Casting: ")
-                        .fontWeight(.bold)
-                    Picker("Casting", selection: $casting) {
-                        ForEach(0 ..< 4) {
-                            Text("\($0)")
+                if characterType == .hero {
+                    HStack {
+                        Text("Casting: ")
+                            .fontWeight(.bold)
+                        Picker("Casting", selection: $casting) {
+                            ForEach(0 ..< 4) {
+                                Text("\($0)")
+                            }
                         }
+                        Spacer()
                     }
-                    Spacer()
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
                 
                 Text("**Note:** You can add skills, spells, and/or equipment to this character after creation")
                     .padding()

@@ -94,16 +94,16 @@ struct CharacterDetailView: View {
             .padding(.horizontal)
             .padding(.vertical, 5)
             
-            HStack {
-                Text("Casting: ")
-                    .fontWeight(.bold)
-                Text("+ \(casting)")
-                Spacer()
-            }
-            .padding(.horizontal)
-            .padding(.vertical, 5)
-            
             if type == .hero {
+                HStack {
+                    Text("Casting: ")
+                        .fontWeight(.bold)
+                    Text("+ \(casting)")
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+                
                 HStack {
                     Text("Experience: ")
                         .fontWeight(.bold)

@@ -83,7 +83,6 @@ class WarbandViewModel: ObservableObject {
             newFollower.toughness = Int64(toughness)
             newFollower.luck = Int64(luck)
             newFollower.will = Int64(will)
-            newFollower.casting = Int64(casting)
             warband.addToFollowers(newFollower)
             
             saveData()
@@ -147,7 +146,7 @@ class WarbandViewModel: ObservableObject {
         saveData()
     }
     
-    func updateFollower(follower: Follower, name: String, agility: Int, speed: Int, dash: Int, combat: Int, toughness: Int, luck: Int, will: Int, casting: Int) {
+    func updateFollower(follower: Follower, name: String, agility: Int, speed: Int, dash: Int, combat: Int, toughness: Int, luck: Int, will: Int) {
         follower.name = name
         follower.agility = Int64(agility)
         follower.speed = Int64(speed)
@@ -156,8 +155,23 @@ class WarbandViewModel: ObservableObject {
         follower.toughness = Int64(toughness)
         follower.luck = Int64(luck)
         follower.will = Int64(will)
-        follower.casting = Int64(casting)
         
+        saveData()
+    }
+    
+    func promoteFollower(warband: Warband, follower: Follower) {
+        let newHero = Hero(context: context)
+        newHero.name = follower.name
+        newHero.agility = follower.agility
+        newHero.speed = follower.speed
+        newHero.dashSpeed = follower.dashSpeed
+        newHero.combatSkill = follower.combatSkill
+        newHero.toughness = follower.toughness
+        newHero.luck = follower.luck
+        newHero.will = follower.will
+        warband.addToHeroes(newHero)
+        
+        context.delete(follower)
         saveData()
     }
     

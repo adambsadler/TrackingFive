@@ -41,7 +41,11 @@ struct CharactersView: View {
             
             ForEach(warbandVM.followers, id: \.self) { follower in
                 if let currentFollower = follower {
-                    CharacterListView(name: currentFollower.name ?? "Unknown", type: .follower, agility: Int(currentFollower.agility), speed: Int(currentFollower.speed), dash: Int(currentFollower.dashSpeed), combat: Int(currentFollower.combatSkill), toughness: Int(currentFollower.toughness))
+                    NavigationLink {
+                        FollowerDetailView(warbandVM: warbandVM, warband: warband, follower: follower)
+                    } label: {
+                        CharacterListView(name: currentFollower.name ?? "Unknown", type: .follower, agility: Int(currentFollower.agility), speed: Int(currentFollower.speed), dash: Int(currentFollower.dashSpeed), combat: Int(currentFollower.combatSkill), toughness: Int(currentFollower.toughness))
+                    }
                 }
             }
             

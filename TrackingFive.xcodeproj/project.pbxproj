@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8545D5EB29AC23E400C7989F /* FollowerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545D5EA29AC23E400C7989F /* FollowerDetailView.swift */; };
+		8545D5ED29AC2BAF00C7989F /* EditFollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545D5EC29AC2BAF00C7989F /* EditFollowerView.swift */; };
+		8545D5EF29AC322600C7989F /* CreateFollowerSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545D5EE29AC322600C7989F /* CreateFollowerSkillView.swift */; };
 		F9479A3129A90499001F33F6 /* HeroDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3029A90499001F33F6 /* HeroDetailView.swift */; };
 		F9479A3329A90875001F33F6 /* EditHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3229A90875001F33F6 /* EditHeroView.swift */; };
 		F9479A3529A9148B001F33F6 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3429A9148B001F33F6 /* CharacterDetailView.swift */; };
@@ -48,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8545D5EA29AC23E400C7989F /* FollowerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDetailView.swift; sourceTree = "<group>"; };
+		8545D5EC29AC2BAF00C7989F /* EditFollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFollowerView.swift; sourceTree = "<group>"; };
+		8545D5EE29AC322600C7989F /* CreateFollowerSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFollowerSkillView.swift; sourceTree = "<group>"; };
 		F9479A3029A90499001F33F6 /* HeroDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailView.swift; sourceTree = "<group>"; };
 		F9479A3229A90875001F33F6 /* EditHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHeroView.swift; sourceTree = "<group>"; };
 		F9479A3429A9148B001F33F6 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
@@ -194,6 +200,9 @@
 				F9479A4229AADA00001F33F6 /* WeaponDetailView.swift */,
 				F9479A4429AAE744001F33F6 /* SkillDetailView.swift */,
 				F9479A4629AAEC28001F33F6 /* SpellDetailView.swift */,
+				8545D5EA29AC23E400C7989F /* FollowerDetailView.swift */,
+				8545D5EC29AC2BAF00C7989F /* EditFollowerView.swift */,
+				8545D5EE29AC322600C7989F /* CreateFollowerSkillView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,11 +299,14 @@
 				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
 				F9479A3B29A947ED001F33F6 /* ItemDetailView.swift in Sources */,
 				F9479A3529A9148B001F33F6 /* CharacterDetailView.swift in Sources */,
+				8545D5EF29AC322600C7989F /* CreateFollowerSkillView.swift in Sources */,
 				F9479A4729AAEC28001F33F6 /* SpellDetailView.swift in Sources */,
 				F971DF6929214C50002418A0 /* WeaponType.swift in Sources */,
 				F99999B6292BEF9D004FA16B /* ThreatNumber.swift in Sources */,
 				F9A4C10E29A7F58C0066ECD5 /* CharacterType.swift in Sources */,
 				F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */,
+				8545D5EB29AC23E400C7989F /* FollowerDetailView.swift in Sources */,
+				8545D5ED29AC2BAF00C7989F /* EditFollowerView.swift in Sources */,
 				F9479A3729A92B42001F33F6 /* CreateHeroSkillView.swift in Sources */,
 				F9A4C10829A7C1900066ECD5 /* CharactersView.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
