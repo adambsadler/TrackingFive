@@ -20,7 +20,7 @@ struct WarbandListView: View {
     
     var body: some View {
         VStack {
-            HeaderView(size: .large, text: "Warbands", widthPercentage: 0.75, height: 60)
+            HeaderView(size: .large, text: "Warbands", widthPercentage: warbandVM.isUsingIpad() ? 0.6 : 0.75, height: 60)
                 .padding(.top)
             
             List {

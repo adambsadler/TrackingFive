@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 import Combine
 
@@ -46,6 +47,14 @@ class WarbandViewModel: ObservableObject {
         } catch {
             let error = error as NSError
             print("Error saving data: \(error.localizedDescription)")
+        }
+    }
+    
+    func isUsingIpad() -> Bool {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return true
+        } else {
+            return false
         }
     }
     

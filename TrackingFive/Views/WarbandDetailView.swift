@@ -102,10 +102,9 @@ struct WarbandDetailView: View {
                     
                     CharactersView(warbandVM: warbandVM, warband: warband)
                 }
-                
-                
             }
         }
+        .padding(.trailing, warbandVM.isUsingIpad() ? 350 : 0)
         .navigationTitle(warband.name ?? "New Warband")
         .onAppear {
             warbandVM.loadWarbandData(warband: warband)

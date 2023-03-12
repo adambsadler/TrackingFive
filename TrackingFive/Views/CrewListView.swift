@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CrewListView: View {
     var body: some View {
-        HeaderView(size: .large, text: "Coming Soon!", widthPercentage: 0.75, height: 60)
+        HeaderView(size: .large, text: "Coming Soon!", widthPercentage: UIDevice.current.userInterfaceIdiom == .pad ? 0.6 : 0.75, height: 60)
     }
 }
 
