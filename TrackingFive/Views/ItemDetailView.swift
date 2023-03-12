@@ -27,8 +27,8 @@ struct ItemDetailView: View {
     
     var body: some View {
         VStack {
-            Text("Item Details")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Item Details", widthPercentage: 0.5, height: 40)
+                .padding(.vertical)
             
             ScrollView {
                 HStack {
@@ -69,6 +69,7 @@ struct ItemDetailView: View {
                             .cornerRadius(15)
                     }
                 }
+                .padding(.top)
              
                 if isMovingItem {
                     HStack {
@@ -183,11 +184,9 @@ struct ItemDetailView: View {
                         }
                     }
                 }
-                
             }
-            
+            .padding(.horizontal)
         }
-        .padding()
     }
 }
 

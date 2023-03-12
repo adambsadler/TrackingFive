@@ -14,32 +14,35 @@ struct SpellDetailView: View {
     
     var body: some View {
         VStack {
-            Text("Spell Details")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Spell Details", widthPercentage: 0.5, height: 40)
+                .padding(.vertical)
             
-            HStack {
-                Text("Name: ")
-                    .fontWeight(.bold)
-                Text(spell.name ?? "Unknown Spell")
-                Spacer()
+            VStack {
+                HStack {
+                    Text("Name: ")
+                        .fontWeight(.bold)
+                    Text(spell.name ?? "Unknown Spell")
+                    Spacer()
+                }
+                .padding()
+                
+                HStack {
+                    Text("Incantation: ")
+                        .fontWeight(.bold)
+                    Text("\(spell.incantation)+")
+                    Spacer()
+                }
+                .padding()
+                
+                HStack {
+                    Text("Rules: ")
+                        .fontWeight(.bold)
+                    Text(spell.rules ?? "No special rules")
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
-            
-            HStack {
-                Text("Incantation: ")
-                    .fontWeight(.bold)
-                Text("\(spell.incantation)+")
-                Spacer()
-            }
-            .padding()
-            
-            HStack {
-                Text("Rules: ")
-                    .fontWeight(.bold)
-                Text(spell.rules ?? "No special rules")
-                Spacer()
-            }
-            .padding()
+            .padding(.horizontal)
             
             Button {
                 warbandVM.deleteSpell(spell: spell)
@@ -51,10 +54,10 @@ struct SpellDetailView: View {
                     .background(Color.red)
                     .cornerRadius(15)
             }
+            .padding()
             
             Spacer()
         }
-        .padding()
     }
 }
 

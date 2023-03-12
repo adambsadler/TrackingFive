@@ -16,30 +16,29 @@ struct NotesView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Notes")
-                    .font(.headline)
-                    .fontWeight(.heavy)
+            ZStack {
+                HeaderView(size: .medium, text: "Notes", widthPercentage: 0.5, height: 40)
                     .padding(.top)
-                Spacer()
-                Button {
-                    withAnimation {
-                        isShowingNote.toggle()
+                HStack {
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            isShowingNote.toggle()
+                        }
+                    } label: {
+                        Image(systemName: isShowingNote ? "eye" : "eye.slash")
+                            .padding(.trailing)
+                            .foregroundColor(isShowingNote ? .accentColor : .gray)
                     }
-                } label: {
-                    Image(systemName: isShowingNote ? "eye" : "eye.slash")
-                        .padding(.trailing)
-                        .foregroundColor(isShowingNote ? .accentColor : .gray)
+                    Button {
+                        isAddingNote.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
                 }
-                Button {
-                    isAddingNote.toggle()
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .foregroundColor(.accentColor)
-                }
+                .padding(.trailing)
             }
             
-            Divider()
             
             if isShowingNote {
                 ForEach(warbandVM.notes, id: \.self) { note in
@@ -55,12 +54,13 @@ struct NotesView: View {
                                     .padding(.trailing)
                             }
                         }
+                        .padding(.horizontal)
                         .padding(.bottom, 5)
                     }
                 }
             }
         }
-        .padding(.horizontal)
+        
         .alert("Add a Note", isPresented: $isAddingNote) {
             TextField("Friend Name", text: $newNoteContent)
                 .disableAutocorrection(true)

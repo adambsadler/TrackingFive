@@ -15,21 +15,21 @@ struct HiddenLocationsView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Hidden Locations")
-                    .font(.headline)
-                    .fontWeight(.heavy)
+            ZStack {
+                HeaderView(size: .medium, text: "Hidden Locations", widthPercentage: 0.5, height: 40)
                     .padding(.top)
-                Spacer()
-                Button {
-                    isAddingLocation.toggle()
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .foregroundColor(.accentColor)
+                HStack {
+                    Spacer()
+                    Button {
+                        isAddingLocation.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
                 }
+                .padding(.trailing)
             }
             
-            Divider()
+            
             
             ForEach(warbandVM.hiddenLocations, id: \.self) { location in
                 if let locationName = location.name {
@@ -44,11 +44,11 @@ struct HiddenLocationsView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
         }
-        .padding(.horizontal)
         .alert("Add Hidden Location", isPresented: $isAddingLocation) {
             TextField("Location Name", text: $newLocationName)
                 .disableAutocorrection(true)

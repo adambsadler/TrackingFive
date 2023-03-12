@@ -17,36 +17,39 @@ struct CreateSpellView: View {
     
     var body: some View {
         VStack {
-            Text("Create a New Spell")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Create a New Spell", widthPercentage: 0.5, height: 40)
+                .padding(.vertical)
             
-            HStack {
-                Text("Name: ")
-                    .fontWeight(.bold)
-                TextField("Spell Name", text: $newSpellName)
-                    .disableAutocorrection(true)
-            }
-            .padding()
-            
-            HStack {
-                Text("Incantation: ")
-                    .fontWeight(.bold)
-                Picker("Incantation", selection: $spellIncantation) {
-                    ForEach(5 ..< 9) {
-                        Text("\($0) +")
-                    }
+            VStack {
+                HStack {
+                    Text("Name: ")
+                        .fontWeight(.bold)
+                    TextField("Spell Name", text: $newSpellName)
+                        .disableAutocorrection(true)
                 }
-                Spacer()
+                .padding()
+                
+                HStack {
+                    Text("Incantation: ")
+                        .fontWeight(.bold)
+                    Picker("Incantation", selection: $spellIncantation) {
+                        ForEach(5 ..< 9) {
+                            Text("\($0) +")
+                        }
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                HStack {
+                    Text("Rules: ")
+                        .fontWeight(.bold)
+                    TextField("Spell Rules", text: $newSpellRules)
+                        .disableAutocorrection(true)
+                }
+                .padding()
             }
             .padding(.horizontal)
-            
-            HStack {
-                Text("Rules: ")
-                    .fontWeight(.bold)
-                TextField("Spell Rules", text: $newSpellRules)
-                    .disableAutocorrection(true)
-            }
-            .padding()
             
             Button {
                 warbandVM.addSpellToHero(hero: hero, incantation: spellIncantation, name: newSpellName, rules: newSpellRules)
@@ -58,10 +61,10 @@ struct CreateSpellView: View {
                     .background(Color.accentColor)
                     .cornerRadius(15)
             }
+            .padding(.vertical)
             
             Spacer()
         }
-        .padding()
     }
 }
 

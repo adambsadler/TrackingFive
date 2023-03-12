@@ -18,24 +18,19 @@ struct WarbandDetailView: View {
         ScrollView(showsIndicators: false) {
             VStack {
                 Group {
-                    HStack {
-                        Text("Warband Details")
-                            .font(.headline)
-                            .fontWeight(.heavy)
-                            .padding(.leading)
-                            .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            EditWarbandDetailsView(warbandVM: warbandVM, warband: warband)
-                        } label: {
-                            Image(systemName: "square.and.pencil")
-                                .padding(.trailing)
-                                .foregroundColor(.accentColor)
+                    ZStack {
+                        HeaderView(size: .medium, text: "Warband Details", widthPercentage: 0.5, height: 40)
+                        HStack {
+                            Spacer()
+                            NavigationLink {
+                                EditWarbandDetailsView(warbandVM: warbandVM, warband: warband)
+                            } label: {
+                                Image(systemName: "square.and.pencil")
+                                    .padding(.trailing)
+                            }
                         }
                     }
-                    
-                    Divider()
-                        .padding(.horizontal)
+                    .padding(.top)
                     
                     VStack(alignment: .leading, spacing: 5) {
                         HStack {
@@ -69,24 +64,22 @@ struct WarbandDetailView: View {
                     
                     NotesView(warbandVM: warbandVM, warband: warband)
                     
-                    HStack {
-                        Text(isEditingThreats ? "Editing Threats..." : "Threat Levels")
-                            .font(.headline)
-                            .fontWeight(.heavy)
-                            .padding(.leading)
+                    ZStack {
+                        HeaderView(size: .medium, text: isEditingThreats ? "Editing Threats..." : "Threat Levels", widthPercentage: 0.5, height: 40)
                             .padding(.top)
-                        Spacer()
-                        Button {
-                            isEditingThreats.toggle()
-                        } label: {
-                            Image(systemName: isEditingThreats ? "arrowshape.turn.up.backward" : "square.and.pencil")
-                                .padding(.trailing)
-                                .foregroundColor(.accentColor)
+                        
+                        HStack {
+                            Spacer()
+                            Button {
+                                isEditingThreats.toggle()
+                            } label: {
+                                Image(systemName: isEditingThreats ? "arrowshape.turn.up.backward" : "square.and.pencil")
+                                    .padding(.trailing)
+                                    .foregroundColor(Color("LightGreen"))
+                            }
                         }
                     }
                     
-                    Divider()
-                        .padding(.horizontal)
                     
                     if isEditingThreats {
                         EditThreatsView(warbandVM: warbandVM, warband: warband)

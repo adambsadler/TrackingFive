@@ -27,8 +27,8 @@ struct WeaponDetailView: View {
     
     var body: some View {
         VStack {
-            Text("Weapon Details")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Weapon Details", widthPercentage: 0.5, height: 40)
+                .padding(.vertical)
             
             ScrollView {
                 Group {
@@ -105,6 +105,7 @@ struct WeaponDetailView: View {
                             .cornerRadius(15)
                     }
                 }
+                .padding(.top)
              
                 if isMovingWeapon {
                     HStack {
@@ -221,9 +222,8 @@ struct WeaponDetailView: View {
                 }
                 
             }
-            
+            .padding(.horizontal)
         }
-        .padding()
     }
 }
 

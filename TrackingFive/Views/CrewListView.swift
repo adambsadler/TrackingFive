@@ -9,9 +9,7 @@ import SwiftUI
 
 struct CrewListView: View {
     var body: some View {
-        Text("Coming soon!")
-            .font(.title)
-            .fontWeight(.heavy)
+        HeaderView(size: .large, text: "Coming Soon!", widthPercentage: 0.75, height: 60)
     }
 }
 

@@ -32,8 +32,8 @@ struct FollowerDetailView: View {
     var body: some View {
         VStack {
             ZStack {
-                Text(isEditing ? "Editing Follower..." : "Follower Details")
-                    .font(.headline)
+                HeaderView(size: .medium, text: isEditing ? "Editing Follower..." : "Follower Details", widthPercentage: 0.5, height: 60)
+                    .padding(.vertical)
                 
                 HStack {
                     Spacer()
@@ -50,26 +50,27 @@ struct FollowerDetailView: View {
             ScrollView {
                 if isEditing {
                     EditFollowerView(warbandVM: warbandVM, follower: follower, isEditing: $isEditing)
+                        .padding(.horizontal)
                 } else {
                     CharacterDetailView(type: .follower, name: follower.name ?? "Unknown", origin: "None", agility: Int(follower.agility), speed: Int(follower.speed), dash: Int(follower.dashSpeed), combat: Int(follower.combatSkill), toughness: Int(follower.toughness), luck: Int(follower.luck), will: Int(follower.will), casting: 0, experience: 0)
+                        .padding(.horizontal)
                 }
                 
                 Group {
-                    HStack {
-                        Text("Skills")
-                            .font(.headline)
-                            .fontWeight(.heavy)
+                    ZStack {
+                        HeaderView(size: .medium, text: "Skills", widthPercentage: 0.5, height: 40)
                             .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            CreateFollowerSkillView(warbandVM: warbandVM, follower: follower)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.accentColor)
+                        HStack {
+                            Spacer()
+                            NavigationLink {
+                                CreateFollowerSkillView(warbandVM: warbandVM, follower: follower)
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .foregroundColor(.accentColor)
+                            }
                         }
+                        .padding(.trailing)
                     }
-                    
-                    Divider()
                     
                     ForEach(allSkills, id: \.self) { skill in
                         if skill.ofFollower == follower, let skillName = skill.name {
@@ -84,30 +85,27 @@ struct FollowerDetailView: View {
                                         .padding(.trailing)
                                 }
                             }
+                            .padding(.horizontal)
                             .padding(.bottom, 5)
                         }
                     }
-                    
-                    
                 }
-                .padding(.horizontal)
                 
                 Group {
-                    HStack {
-                        Text("Equipment")
-                            .font(.headline)
-                            .fontWeight(.heavy)
+                    ZStack {
+                        HeaderView(size: .medium, text: "Equipment", widthPercentage: 0.5, height: 40)
                             .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            CreateItemView(warbandVM: warbandVM, placement: .follower, follower: follower)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.accentColor)
+                        HStack {
+                            Spacer()
+                            NavigationLink {
+                                CreateItemView(warbandVM: warbandVM, placement: .follower, follower: follower)
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .foregroundColor(.accentColor)
+                            }
                         }
+                        .padding(.trailing)
                     }
-                    
-                    Divider()
                     
                     if let armor = follower.armor, let armorName = armor.name {
                         HStack {
@@ -121,6 +119,7 @@ struct FollowerDetailView: View {
                                     .padding(.trailing)
                             }
                         }
+                        .padding(.horizontal)
                         .padding(.bottom, 5)
                     }
                     
@@ -137,6 +136,7 @@ struct FollowerDetailView: View {
                                         .padding(.trailing)
                                 }
                             }
+                            .padding(.horizontal)
                             .padding(.bottom, 5)
                         }
                     }
@@ -154,11 +154,11 @@ struct FollowerDetailView: View {
                                         .padding(.trailing)
                                 }
                             }
+                            .padding(.horizontal)
                             .padding(.bottom, 5)
                         }
                     }
                 }
-                .padding(.horizontal)
                 
                 Button {
                     warbandVM.promoteFollower(warband: warband, follower: follower)
@@ -172,9 +172,7 @@ struct FollowerDetailView: View {
                 }
                 .padding()
             }
-            
         }
-        .padding()
     }
 }
 

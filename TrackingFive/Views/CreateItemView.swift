@@ -37,8 +37,9 @@ struct CreateItemView: View {
     
     var body: some View {
         VStack {
-            Text("Add Equipment")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Add Equipment", widthPercentage: 0.5, height: 40)
+                .padding(.top)
+            
             HStack {
                 Button {
                     isCreatingItem = true
@@ -76,120 +77,124 @@ struct CreateItemView: View {
                         .cornerRadius(15)
                 }
             }
+            .padding()
             
-            if isCreatingItem {
-                HStack {
-                    Text("Name: ")
-                        .fontWeight(.bold)
-                    TextField("Item Name", text: $newItemName)
-                        .disableAutocorrection(true)
+            VStack {
+                if isCreatingItem {
+                    HStack {
+                        Text("Name: ")
+                            .fontWeight(.bold)
+                        TextField("Item Name", text: $newItemName)
+                            .disableAutocorrection(true)
+                    }
+                    .padding()
+                    
+                    HStack {
+                        Text("Rules: ")
+                            .fontWeight(.bold)
+                        TextField("Item Rules", text: $newItemRules)
+                            .disableAutocorrection(true)
+                    }
+                    .padding()
                 }
-                .padding()
                 
-                HStack {
-                    Text("Rules: ")
-                        .fontWeight(.bold)
-                    TextField("Item Rules", text: $newItemRules)
-                        .disableAutocorrection(true)
-                }
-                .padding()
-            }
-            
-            if isCreatingWeapon {
-                HStack {
-                    Text("Weapon Type: ")
-                        .fontWeight(.bold)
-                    Picker("Select type of weapon", selection: $weaponType) {
-                        ForEach(WeaponType.allCases, id: \.self) { value in
-                            Text(value.localizedName)
-                                .tag(value)
+                if isCreatingWeapon {
+                    HStack {
+                        Text("Weapon Type: ")
+                            .fontWeight(.bold)
+                        Picker("Select type of weapon", selection: $weaponType) {
+                            ForEach(WeaponType.allCases, id: \.self) { value in
+                                Text(value.localizedName)
+                                    .tag(value)
+                            }
                         }
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Name: ")
+                            .fontWeight(.bold)
+                        TextField("Weapon Name", text: $newItemName)
+                            .disableAutocorrection(true)
+                    }
+                    .padding(.horizontal)
+                    
+                    if weaponType == .ranged {
+                        HStack {
+                            Text("Range: ")
+                                .fontWeight(.bold)
+                            TextField("Weapon Range", value: $range, formatter: NumberFormatter())
+                                .keyboardType(.numberPad)
+                        }
+                        .padding(.horizontal)
                     }
                     
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Name: ")
-                        .fontWeight(.bold)
-                    TextField("Weapon Name", text: $newItemName)
-                        .disableAutocorrection(true)
-                }
-                .padding(.horizontal)
-                
-                if weaponType == .ranged {
                     HStack {
-                        Text("Range: ")
+                        Text("Overcome Armor: ")
                             .fontWeight(.bold)
-                        TextField("Weapon Range", value: $range, formatter: NumberFormatter())
-                            .keyboardType(.numberPad)
+                        Picker("Score", selection: $overcomeArmor) {
+                            ForEach(-1 ..< 4) {
+                                Text("\($0)")
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Overcome Toughness: ")
+                            .fontWeight(.bold)
+                        Picker("Score", selection: $overcomeTough) {
+                            ForEach(-1 ..< 4) {
+                                Text("\($0)")
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+
+                    HStack {
+                        Text("Rules: ")
+                            .fontWeight(.bold)
+                        TextField("Weapon Rules", text: $newItemRules)
+                            .disableAutocorrection(true)
                     }
                     .padding(.horizontal)
                 }
                 
-                HStack {
-                    Text("Overcome Armor: ")
-                        .fontWeight(.bold)
-                    Picker("Score", selection: $overcomeArmor) {
-                        ForEach(-1 ..< 4) {
-                            Text("\($0)")
-                        }
+                if isCreatingArmor {
+                    HStack {
+                        Text("Name: ")
+                            .fontWeight(.bold)
+                        TextField("Armor Name", text: $newItemName)
+                            .disableAutocorrection(true)
                     }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Overcome Toughness: ")
-                        .fontWeight(.bold)
-                    Picker("Score", selection: $overcomeTough) {
-                        ForEach(-1 ..< 4) {
-                            Text("\($0)")
+                    .padding()
+                    
+                    HStack {
+                        Text("Armor Rating: ")
+                            .fontWeight(.bold)
+                        Picker("Score", selection: $armorRatihg) {
+                            ForEach(0 ..< 4) {
+                                Text("\($0)")
+                            }
                         }
+                        Spacer()
                     }
-                    Spacer()
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Rules: ")
+                            .fontWeight(.bold)
+                        TextField("Armor Rules", text: $newItemRules)
+                            .disableAutocorrection(true)
+                    }
+                    .padding()
                 }
-                .padding(.horizontal)
-
-                HStack {
-                    Text("Rules: ")
-                        .fontWeight(.bold)
-                    TextField("Weapon Rules", text: $newItemRules)
-                        .disableAutocorrection(true)
-                }
-                .padding(.horizontal)
             }
-            
-            if isCreatingArmor {
-                HStack {
-                    Text("Name: ")
-                        .fontWeight(.bold)
-                    TextField("Armor Name", text: $newItemName)
-                        .disableAutocorrection(true)
-                }
-                .padding()
-                
-                HStack {
-                    Text("Armor Rating: ")
-                        .fontWeight(.bold)
-                    Picker("Score", selection: $armorRatihg) {
-                        ForEach(0 ..< 4) {
-                            Text("\($0)")
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Rules: ")
-                        .fontWeight(.bold)
-                    TextField("Armor Rules", text: $newItemRules)
-                        .disableAutocorrection(true)
-                }
-                .padding()
-            }
+            .padding(.horizontal)
             
             HStack {
                 Button {
@@ -248,7 +253,6 @@ struct CreateItemView: View {
             
             Spacer()
         }
-        .padding()
     }
 }
 

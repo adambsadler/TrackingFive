@@ -14,39 +14,42 @@ struct SkillDetailView: View {
     
     var body: some View {
         VStack {
-            Text("Skill Details")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Skill Details", widthPercentage: 0.5, height: 40)
+                .padding(.vertical)
             
-            HStack {
-                Text("Name: ")
-                    .fontWeight(.bold)
-                Text(skill.name ?? "Unknown Skill")
-                Spacer()
+            VStack {
+                HStack {
+                    Text("Name: ")
+                        .fontWeight(.bold)
+                    Text(skill.name ?? "Unknown Skill")
+                    Spacer()
+                }
+                .padding()
+                
+                HStack {
+                    Text("Rules: ")
+                        .fontWeight(.bold)
+                    Text(skill.rules ?? "No special rules")
+                    Spacer()
+                }
+                .padding()
+                
+                Button {
+                    warbandVM.deleteSkill(skill: skill)
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Delete Skill")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .cornerRadius(15)
+                }
+                .padding()
             }
-            .padding()
-            
-            HStack {
-                Text("Rules: ")
-                    .fontWeight(.bold)
-                Text(skill.rules ?? "No special rules")
-                Spacer()
-            }
-            .padding()
-            
-            Button {
-                warbandVM.deleteSkill(skill: skill)
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Delete Skill")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.red)
-                    .cornerRadius(15)
-            }
+            .padding(.horizontal)
             
             Spacer()
         }
-        .padding()
     }
 }
 

@@ -10,6 +10,7 @@
 		8545D5EB29AC23E400C7989F /* FollowerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545D5EA29AC23E400C7989F /* FollowerDetailView.swift */; };
 		8545D5ED29AC2BAF00C7989F /* EditFollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545D5EC29AC2BAF00C7989F /* EditFollowerView.swift */; };
 		8545D5EF29AC322600C7989F /* CreateFollowerSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545D5EE29AC322600C7989F /* CreateFollowerSkillView.swift */; };
+		85E295DA29BD73A00078EDD4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E295D929BD73A00078EDD4 /* HeaderView.swift */; };
 		F9479A3129A90499001F33F6 /* HeroDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3029A90499001F33F6 /* HeroDetailView.swift */; };
 		F9479A3329A90875001F33F6 /* EditHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3229A90875001F33F6 /* EditHeroView.swift */; };
 		F9479A3529A9148B001F33F6 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9479A3429A9148B001F33F6 /* CharacterDetailView.swift */; };
@@ -55,6 +56,7 @@
 		8545D5EA29AC23E400C7989F /* FollowerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDetailView.swift; sourceTree = "<group>"; };
 		8545D5EC29AC2BAF00C7989F /* EditFollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFollowerView.swift; sourceTree = "<group>"; };
 		8545D5EE29AC322600C7989F /* CreateFollowerSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFollowerSkillView.swift; sourceTree = "<group>"; };
+		85E295D929BD73A00078EDD4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F9479A3029A90499001F33F6 /* HeroDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailView.swift; sourceTree = "<group>"; };
 		F9479A3229A90875001F33F6 /* EditHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHeroView.swift; sourceTree = "<group>"; };
 		F9479A3429A9148B001F33F6 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				F9FF3AC829BD535700E8B1DF /* CustomRectangle.swift */,
+				85E295D929BD73A00078EDD4 /* HeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				F99999B8292C0246004FA16B /* EditThreatsView.swift in Sources */,
 				8545D5EB29AC23E400C7989F /* FollowerDetailView.swift in Sources */,
 				8545D5ED29AC2BAF00C7989F /* EditFollowerView.swift in Sources */,
+				85E295DA29BD73A00078EDD4 /* HeaderView.swift in Sources */,
 				F9479A3729A92B42001F33F6 /* CreateHeroSkillView.swift in Sources */,
 				F9A4C10829A7C1900066ECD5 /* CharactersView.swift in Sources */,
 				F971DF61292025B0002418A0 /* WarbandListView.swift in Sources */,
@@ -479,7 +483,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,7 +513,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

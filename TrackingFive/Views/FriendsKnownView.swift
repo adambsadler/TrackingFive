@@ -15,21 +15,20 @@ struct FriendsKnownView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Friends Known")
-                    .font(.headline)
-                    .fontWeight(.heavy)
+            ZStack {
+                HeaderView(size: .medium, text: "Friends Known", widthPercentage: 0.5, height: 40)
                     .padding(.top)
-                Spacer()
-                Button {
-                    isAddingFriend.toggle()
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .foregroundColor(.accentColor)
+                HStack {
+                    Spacer()
+                    Button {
+                        isAddingFriend.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
                 }
+                .padding(.trailing)
             }
             
-            Divider()
             
             ForEach(warbandVM.friends, id: \.self) { friend in
                 if let friendName = friend.name {
@@ -44,11 +43,11 @@ struct FriendsKnownView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
         }
-        .padding(.horizontal)
         .alert("Add a Friend", isPresented: $isAddingFriend) {
             TextField("Friend Name", text: $newFriendName)
                 .disableAutocorrection(true)

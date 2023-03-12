@@ -20,11 +20,11 @@ struct CharacterListView: View {
         VStack {
             HStack {
                 Text(name)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("BlackWhite"))
                     .bold()
                 Spacer()
                 Text(type.localizedName)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("BlackWhite"))
                     .bold()
             }
             .padding()
@@ -32,39 +32,39 @@ struct CharacterListView: View {
             HStack(spacing: 25) {
                 VStack {
                     Text("Agility")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                         .bold()
                     Text("\(agility)")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                 }
                 
                 VStack {
                     Text("Speed")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                         .bold()
                     Text("\(speed)\" / +\(dash)\"")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                 }
                 
                 VStack {
                     Text("Combat")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                         .bold()
                     Text("+\(combat)")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                 }
                 
                 VStack {
                     Text("Tough")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                         .bold()
                     Text("\(toughness)")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("BlackWhite"))
                 }
             }
             .padding(.bottom)
         }
-        .background(.gray)
+        .background(Color("LightGreen"))
         .cornerRadius(15)
         .padding()
     }

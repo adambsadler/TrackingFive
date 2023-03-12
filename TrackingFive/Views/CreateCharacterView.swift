@@ -25,8 +25,8 @@ struct CreateCharacterView: View {
     
     var body: some View {
         VStack {
-            Text("Create Character")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Create Character", widthPercentage: 0.5, height: 40)
+                .padding(.top)
             
             Group {
                 HStack {
@@ -152,6 +152,7 @@ struct CreateCharacterView: View {
                 Text("**Note:** You can add skills, spells, and/or equipment to this character after creation")
                     .padding()
             }
+            .padding(.horizontal)
             
             
             HStack {
@@ -176,10 +177,10 @@ struct CreateCharacterView: View {
                         .cornerRadius(15)
                 }
             }
+            .padding(.horizontal)
             
             Spacer()
         }
-        .padding()
     }
 }
 

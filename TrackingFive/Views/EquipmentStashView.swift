@@ -13,21 +13,20 @@ struct EquipmentStashView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Equipment Stash")
-                    .font(.headline)
-                    .fontWeight(.heavy)
+            ZStack {
+                HeaderView(size: .medium, text: "Equipment Stash", widthPercentage: 0.5, height: 40)
                     .padding(.top)
-                Spacer()
-                NavigationLink {
-                    CreateItemView(warbandVM: warbandVM, warband: warband, placement: .stash)
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .foregroundColor(.accentColor)
+                
+                HStack {
+                    Spacer()
+                    NavigationLink {
+                        CreateItemView(warbandVM: warbandVM, warband: warband, placement: .stash)
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
                 }
+                .padding(.trailing)
             }
-            
-            Divider()
             
             if !warbandVM.stashedItems.isEmpty {
                 HStack {
@@ -35,6 +34,7 @@ struct EquipmentStashView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             
             ForEach(warbandVM.stashedItems, id: \.self) { item in
@@ -50,6 +50,7 @@ struct EquipmentStashView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
@@ -60,6 +61,7 @@ struct EquipmentStashView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             
             ForEach(warbandVM.stashedWeapons, id: \.self) { weapon in
@@ -75,6 +77,7 @@ struct EquipmentStashView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
@@ -85,6 +88,7 @@ struct EquipmentStashView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             
             ForEach(warbandVM.stashedArmor, id: \.self) { armor in
@@ -100,11 +104,11 @@ struct EquipmentStashView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
         }
-        .padding(.horizontal)
     }
 }
 

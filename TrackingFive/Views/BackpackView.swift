@@ -13,21 +13,19 @@ struct BackpackView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Backpack")
-                    .font(.headline)
-                    .fontWeight(.heavy)
+            ZStack {
+                HeaderView(size: .medium, text: "Backpack", widthPercentage: 0.5, height: 40)
                     .padding(.top)
-                Spacer()
-                NavigationLink {
-                    CreateItemView(warbandVM: warbandVM, warband: warband, placement: .backpack)
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .foregroundColor(.accentColor)
+                HStack {
+                    Spacer()
+                    NavigationLink {
+                        CreateItemView(warbandVM: warbandVM, warband: warband, placement: .backpack)
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
                 }
+                .padding(.trailing)
             }
-            
-            Divider()
             
             if !warbandVM.itemsInBackpack.isEmpty {
                 HStack {
@@ -35,6 +33,7 @@ struct BackpackView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             
             ForEach(warbandVM.itemsInBackpack, id: \.self) { item in
@@ -50,6 +49,7 @@ struct BackpackView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
@@ -60,6 +60,7 @@ struct BackpackView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             
             ForEach(warbandVM.weaponsInBackpack, id: \.self) { weapon in
@@ -75,6 +76,7 @@ struct BackpackView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
@@ -85,6 +87,7 @@ struct BackpackView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             
             ForEach(warbandVM.armorInBackpack, id: \.self) { armor in
@@ -100,11 +103,11 @@ struct BackpackView: View {
                                 .padding(.trailing)
                         }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom, 5)
                 }
             }
         }
-        .padding(.horizontal)
     }
 }
 

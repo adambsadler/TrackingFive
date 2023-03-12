@@ -16,24 +16,27 @@ struct CreateFollowerSkillView: View {
     
     var body: some View {
         VStack {
-            Text("Create a New Skill")
-                .font(.headline)
+            HeaderView(size: .medium, text: "Create a New Skill", widthPercentage: 0.5, height: 40)
+                .padding(.vertical)
             
-            HStack {
-                Text("Name: ")
-                    .fontWeight(.bold)
-                TextField("Skill Name", text: $newSkillName)
-                    .disableAutocorrection(true)
+            VStack {
+                HStack {
+                    Text("Name: ")
+                        .fontWeight(.bold)
+                    TextField("Skill Name", text: $newSkillName)
+                        .disableAutocorrection(true)
+                }
+                .padding()
+                
+                HStack {
+                    Text("Rules: ")
+                        .fontWeight(.bold)
+                    TextField("Skill Rules", text: $newSkillRules)
+                        .disableAutocorrection(true)
+                }
+                .padding()
             }
-            .padding()
-            
-            HStack {
-                Text("Rules: ")
-                    .fontWeight(.bold)
-                TextField("Skill Rules", text: $newSkillRules)
-                    .disableAutocorrection(true)
-            }
-            .padding()
+            .padding(.horizontal)
             
             Button {
                 warbandVM.addSkillToFollower(follower: follower, name: newSkillName, rules: newSkillRules)
@@ -45,10 +48,10 @@ struct CreateFollowerSkillView: View {
                     .background(Color.accentColor)
                     .cornerRadius(15)
             }
+            .padding()
             
             Spacer()
         }
-        .padding()
     }
 }
 

@@ -38,11 +38,11 @@ struct ThreatLevelsView: View {
 
                     ZStack {
                         Circle()
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("LightGreen"))
                             .frame(maxWidth: 50)
                         Text("\(firstLevel)")
                             .fontWeight(.heavy)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("BlackWhite"))
                     }
                 } else {
                     Text("Add a Threat")
@@ -54,7 +54,7 @@ struct ThreatLevelsView: View {
                     } label: {
                         ZStack {
                             Circle()
-                                .foregroundColor(.accentColor)
+                                .foregroundColor(.gray)
                                 .frame(maxWidth: 50)
                             Text("+")
                                 .fontWeight(.heavy)
@@ -67,7 +67,7 @@ struct ThreatLevelsView: View {
             HStack {
                 if let threat = warband.secondThreat {
                     Stepper {
-                        Text(threat.name ?? "First Threat")
+                        Text(threat.name ?? "Second Threat")
                             .fontWeight(.bold)
                     } onIncrement: {
                         if secondLevel < 9 {
@@ -83,11 +83,11 @@ struct ThreatLevelsView: View {
                     
                     ZStack {
                         Circle()
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("LightGreen"))
                             .frame(maxWidth: 50)
                         Text("\(secondLevel)")
                             .fontWeight(.heavy)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("BlackWhite"))
                     }
                 } else {
                     Text("Add a Threat")
@@ -99,7 +99,7 @@ struct ThreatLevelsView: View {
                     } label: {
                         ZStack {
                             Circle()
-                                .foregroundColor(.accentColor)
+                                .foregroundColor(.gray)
                                 .frame(maxWidth: 50)
                             Text("+")
                                 .fontWeight(.heavy)
@@ -112,7 +112,7 @@ struct ThreatLevelsView: View {
             HStack {
                 if let threat = warband.thirdThreat {
                     Stepper {
-                        Text(threat.name ?? "First Threat")
+                        Text(threat.name ?? "Third Threat")
                             .fontWeight(.bold)
                     } onIncrement: {
                         if thirdLevel < 9 {
@@ -128,11 +128,11 @@ struct ThreatLevelsView: View {
                     
                     ZStack {
                         Circle()
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("LightGreen"))
                             .frame(maxWidth: 50)
                         Text("\(thirdLevel)")
                             .fontWeight(.heavy)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("BlackWhite"))
                     }
                 } else {
                     Text("Add a Threat")
@@ -144,7 +144,7 @@ struct ThreatLevelsView: View {
                     } label: {
                         ZStack {
                             Circle()
-                                .foregroundColor(.accentColor)
+                                .foregroundColor(.gray)
                                 .frame(maxWidth: 50)
                             Text("+")
                                 .fontWeight(.heavy)

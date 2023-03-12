@@ -19,18 +19,25 @@ struct WarbandListView: View {
     private var warbands: FetchedResults<Warband>
     
     var body: some View {
-        List {
-            Section("Your Warbands") {
-                ForEach(warbands) { warband in
-                    NavigationLink {
-                        WarbandDetailView(warbandVM: warbandVM, warband: warband)
-                    } label: {
-                        Text(warband.name!)
+        VStack {
+            HeaderView(size: .large, text: "Warbands", widthPercentage: 0.75, height: 60)
+                .padding(.top)
+            
+            List {
+                Section {
+                    ForEach(warbands) { warband in
+                        NavigationLink {
+                            WarbandDetailView(warbandVM: warbandVM, warband: warband)
+                        } label: {
+                            Text(warband.name ?? "Unnamed Warband")
+                        }
                     }
+                    .onDelete(perform: deleteWarband)
                 }
-                .onDelete(perform: deleteWarband)
             }
-        }.toolbar {
+            .listStyle(.plain)
+        }
+        .toolbar {
             ToolbarItem {
                 Button {
                     showingCreateView.toggle()

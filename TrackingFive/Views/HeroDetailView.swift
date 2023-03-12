@@ -37,8 +37,8 @@ struct HeroDetailView: View {
     var body: some View {
         VStack {
             ZStack {
-                Text(isEditing ? "Editing Hero..." : "Hero Details")
-                    .font(.headline)
+                HeaderView(size: .medium, text: isEditing ? "Editing Hero..." : "Hero Details", widthPercentage: 0.5, height: 60)
+                    .padding(.vertical)
                 
                 HStack {
                     Spacer()
@@ -55,26 +55,27 @@ struct HeroDetailView: View {
             ScrollView {
                 if isEditing {
                     EditHeroView(warbandVM: warbandVM, hero: hero, isEditing: $isEditing)
+                        .padding(.horizontal)
                 } else {
                     CharacterDetailView(type: .hero, name: hero.name ?? "Unknown", origin: hero.origin ?? "Unknown", agility: Int(hero.agility), speed: Int(hero.speed), dash: Int(hero.dashSpeed), combat: Int(hero.combatSkill), toughness: Int(hero.toughness), luck: Int(hero.luck), will: Int(hero.will), casting: Int(hero.casting), experience: Int(hero.experience))
+                        .padding(.horizontal)
                 }
                 
                 Group {
-                    HStack {
-                        Text("Skills")
-                            .font(.headline)
-                            .fontWeight(.heavy)
+                    ZStack {
+                        HeaderView(size: .medium, text: "Skills", widthPercentage: 0.5, height: 40)
                             .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            CreateHeroSkillView(warbandVM: warbandVM, hero: hero)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.accentColor)
+                        HStack {
+                            Spacer()
+                            NavigationLink {
+                                CreateHeroSkillView(warbandVM: warbandVM, hero: hero)
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .foregroundColor(.accentColor)
+                            }
                         }
+                        .padding(.trailing)
                     }
-                    
-                    Divider()
                     
                     ForEach(allSkills, id: \.self) { skill in
                         if skill.ofHero == hero, let skillName = skill.name {
@@ -89,25 +90,26 @@ struct HeroDetailView: View {
                                         .padding(.trailing)
                                 }
                             }
+                            .padding(.horizontal)
                             .padding(.bottom, 5)
                         }
                     }
                     
-                    HStack {
-                        Text("Spells")
-                            .font(.headline)
-                            .fontWeight(.heavy)
+                    ZStack {
+                        HeaderView(size: .medium, text: "Spells", widthPercentage: 0.5, height: 40)
                             .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            CreateSpellView(warbandVM: warbandVM, hero: hero)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.accentColor)
+                        HStack {
+                            Spacer()
+                            NavigationLink {
+                                CreateSpellView(warbandVM: warbandVM, hero: hero)
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .foregroundColor(.accentColor)
+                            }
                         }
+                        .padding(.trailing)
                     }
                     
-                    Divider()
                     
                     ForEach(allSpells, id: \.self) { spell in
                         if spell.ofHero == hero, let spellName = spell.name {
@@ -122,30 +124,29 @@ struct HeroDetailView: View {
                                         .padding(.trailing)
                                 }
                             }
+                            .padding(.horizontal)
                             .padding(.bottom, 5)
                         }
                     }
                     
                     
                 }
-                .padding(.horizontal)
                 
                 Group {
-                    HStack {
-                        Text("Equipment")
-                            .font(.headline)
-                            .fontWeight(.heavy)
+                    ZStack {
+                        HeaderView(size: .medium, text: "Equipment", widthPercentage: 0.5, height: 40)
                             .padding(.top)
-                        Spacer()
-                        NavigationLink {
-                            CreateItemView(warbandVM: warbandVM, placement: .hero, hero: hero)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.accentColor)
+                        HStack {
+                            Spacer()
+                            NavigationLink {
+                                CreateItemView(warbandVM: warbandVM, placement: .hero, hero: hero)
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .foregroundColor(.accentColor)
+                            }
                         }
+                        .padding(.trailing)
                     }
-                    
-                    Divider()
                     
                     if let armor = hero.armor, let armorName = armor.name {
                         HStack {
@@ -159,6 +160,7 @@ struct HeroDetailView: View {
                                     .padding(.trailing)
                             }
                         }
+                        .padding(.horizontal)
                         .padding(.bottom, 5)
                     }
                     
@@ -175,6 +177,7 @@ struct HeroDetailView: View {
                                         .padding(.trailing)
                                 }
                             }
+                            .padding(.horizontal)
                             .padding(.bottom, 5)
                         }
                     }
@@ -192,15 +195,13 @@ struct HeroDetailView: View {
                                         .padding(.trailing)
                                 }
                             }
+                            .padding(.horizontal)
                             .padding(.bottom, 5)
                         }
                     }
                 }
-                .padding(.horizontal)
             }
-            
         }
-        .padding()
     }
 }
 

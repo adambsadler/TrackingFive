@@ -18,20 +18,7 @@ struct ContentView: View {
             VStack(spacing: 50) {
                 Spacer()
                 
-                ZStack {
-                    HStack {
-                        CustomRectangle()
-                            .fill(Color("LightGreen"))
-                            .frame(width: UIScreen.main.bounds.width * 0.75, height: 60)
-                            .shadow(radius: 10)
-                        Spacer()
-                    }
-                    
-                    Text("Tracking Five")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                }
-                
+                HeaderView(size: .large, text: "Tracking Five", widthPercentage: 0.75, height: 60)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
@@ -71,19 +58,7 @@ struct ContentView: View {
                     }
                 }
                 
-                ZStack {
-                    HStack {
-                        Spacer()
-                        CustomRectangle()
-                            .fill(Color("LightGreen"))
-                            .frame(width: UIScreen.main.bounds.width * 0.75, height: 60)
-                            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-                            .shadow(radius: 10)
-                    }
-                    Text("Choose a Game")
-                        .font(.title)
-                        .fontWeight(.bold)
-                }
+                HeaderView(size: .largeFlipped, text: "Choose a Game", widthPercentage: 0.75, height: 60)
                 
                 
                 Spacer()
