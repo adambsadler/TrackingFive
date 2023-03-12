@@ -48,6 +48,7 @@
 		F9A4C10A29A7EFF30066ECD5 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4C10929A7EFF30066ECD5 /* CharacterListView.swift */; };
 		F9A4C10E29A7F58C0066ECD5 /* CharacterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4C10D29A7F58C0066ECD5 /* CharacterType.swift */; };
 		F9A4C11029A7F7220066ECD5 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4C10F29A7F7220066ECD5 /* CreateCharacterView.swift */; };
+		F9FF3AC929BD535700E8B1DF /* CustomRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF3AC829BD535700E8B1DF /* CustomRectangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		F9A4C10929A7EFF30066ECD5 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		F9A4C10D29A7F58C0066ECD5 /* CharacterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterType.swift; sourceTree = "<group>"; };
 		F9A4C10F29A7F7220066ECD5 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
+		F9FF3AC829BD535700E8B1DF /* CustomRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRectangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		F971DF2F291FE784002418A0 /* TrackingFive */ = {
 			isa = PBXGroup;
 			children = (
+				F9FF3AC729BD534200E8B1DF /* Components */,
 				F9479A4129AACECC001F33F6 /* TrackingFive.entitlements */,
 				F971DF6529204076002418A0 /* Core Data */,
 				F971DF622920293F002418A0 /* ViewModels */,
@@ -223,6 +226,14 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
+		F9FF3AC729BD534200E8B1DF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9FF3AC829BD535700E8B1DF /* CustomRectangle.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,6 +309,7 @@
 				F99999C0293122F9004FA16B /* NewItemPlacement.swift in Sources */,
 				F99999B029229D64004FA16B /* WarbandDetailView.swift in Sources */,
 				F9479A3B29A947ED001F33F6 /* ItemDetailView.swift in Sources */,
+				F9FF3AC929BD535700E8B1DF /* CustomRectangle.swift in Sources */,
 				F9479A3529A9148B001F33F6 /* CharacterDetailView.swift in Sources */,
 				8545D5EF29AC322600C7989F /* CreateFollowerSkillView.swift in Sources */,
 				F9479A4729AAEC28001F33F6 /* SpellDetailView.swift in Sources */,
