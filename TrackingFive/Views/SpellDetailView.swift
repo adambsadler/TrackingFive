@@ -44,15 +44,9 @@ struct SpellDetailView: View {
             }
             .padding(.horizontal)
             
-            Button {
+            CustomButton(text: "Delete Spell", size: .medium, style: .cancel) {
                 warbandVM.deleteSpell(spell: spell)
                 presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Delete Spell")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.red)
-                    .cornerRadius(15)
             }
             .padding()
             

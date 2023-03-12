@@ -160,15 +160,9 @@ struct FollowerDetailView: View {
                     }
                 }
                 
-                Button {
+                CustomButton(text: "Promote to Hero", size: .medium, style: .active) {
                     warbandVM.promoteFollower(warband: warband, follower: follower)
                     presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Promote to Hero")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.accentColor)
-                        .cornerRadius(15)
                 }
                 .padding()
             }

@@ -56,25 +56,13 @@ struct ArmorDetailView: View {
                 .padding()
                 
                 HStack {
-                    Button {
+                    CustomButton(text: "Delete Armor", size: .medium, style: .cancel) {
                         warbandVM.deleteArmor(armor: armor)
                         presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Delete Armor")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.red)
-                            .cornerRadius(15)
                     }
                     
-                    Button {
+                    CustomButton(text: isMovingArmor ? "Move to..." : "Move Armor", size: .medium, style: isMovingArmor ? .inactive : .active) {
                         isMovingArmor.toggle()
-                    } label: {
-                        Text(isMovingArmor ? "Move to..." : "Move Armor")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(isMovingArmor ? Color.gray : Color.accentColor)
-                            .cornerRadius(15)
                     }
                 }
                 .padding(.top)
@@ -82,67 +70,43 @@ struct ArmorDetailView: View {
                 if isMovingArmor {
                     HStack {
                         if movingFrom != .stash {
-                            Button {
+                            CustomButton(text: "Stash", size: .small, style: isMovingToStash ? .active : .inactive) {
                                 isMovingToStash = true
                                 isMovingToBackpack = false
                                 isMovingToHero = false
                                 isMovingToFollower = false
                                 readyToConfirm = true
                                 movingTo = .stash
-                            } label: {
-                                Text("Stash")
-                                    .padding(8)
-                                    .foregroundColor(.white)
-                                    .background(isMovingToStash ? Color.accentColor : Color.gray)
-                                    .cornerRadius(10)
                             }
                         }
                         
                         if movingFrom != .backpack {
-                            Button {
+                            CustomButton(text: "Backpack", size: .small, style: isMovingToBackpack ? .active : .inactive) {
                                 isMovingToStash = false
                                 isMovingToBackpack = true
                                 isMovingToHero = false
                                 isMovingToFollower = false
                                 readyToConfirm = true
                                 movingTo = .backpack
-                            } label: {
-                                Text("Backpack")
-                                    .padding(8)
-                                    .foregroundColor(.white)
-                                    .background(isMovingToBackpack ? Color.accentColor : Color.gray)
-                                    .cornerRadius(10)
                             }
                         }
                         
-                        Button {
+                        CustomButton(text: "Hero", size: .small, style: isMovingToHero ? .active : .inactive) {
                             isMovingToStash = false
                             isMovingToBackpack = false
                             isMovingToHero = true
                             isMovingToFollower = false
                             readyToConfirm = false
                             movingTo = .hero
-                        } label: {
-                            Text("Hero")
-                                .padding(8)
-                                .foregroundColor(.white)
-                                .background(isMovingToHero ? Color.accentColor : Color.gray)
-                                .cornerRadius(10)
                         }
                         
-                        Button {
+                        CustomButton(text: "Follower", size: .small, style: isMovingToFollower ? .active : .inactive) {
                             isMovingToStash = false
                             isMovingToBackpack = false
                             isMovingToHero = false
                             isMovingToFollower = true
                             readyToConfirm = false
                             movingTo = .follower
-                        } label: {
-                            Text("Follower")
-                                .padding(8)
-                                .foregroundColor(.white)
-                                .background(isMovingToFollower ? Color.accentColor : Color.gray)
-                                .cornerRadius(10)
                         }
                     }
                     .padding(.vertical)
@@ -180,15 +144,9 @@ struct ArmorDetailView: View {
                     }
                     
                     if readyToConfirm {
-                        Button {
+                        CustomButton(text: "Move Armor", size: .medium, style: .active) {
                             warbandVM.moveArmor(warband: warband, armor: armor, from: movingFrom, fromHero: fromHero, fromFollower: fromFollower, to: movingTo, toHero: heroToGetArmor, toFollower: followerToGetArmor)
                             presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Text("Move Armor")
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.accentColor)
-                                .cornerRadius(15)
                         }
                     }
                 }

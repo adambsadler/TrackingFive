@@ -41,40 +41,22 @@ struct CreateItemView: View {
                 .padding(.top)
             
             HStack {
-                Button {
+                CustomButton(text: "Item", size: .medium, style: isCreatingItem ? .active : .inactive) {
                     isCreatingItem = true
                     isCreatingWeapon = false
                     isCreatingArmor = false
-                } label: {
-                    Text("Item")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(isCreatingItem ? Color.accentColor : Color.gray)
-                        .cornerRadius(15)
                 }
                 
-                Button {
+                CustomButton(text: "Weapon", size: .medium, style: isCreatingWeapon ? .active : .inactive) {
                     isCreatingItem = false
                     isCreatingWeapon = true
                     isCreatingArmor = false
-                } label: {
-                    Text("Weapon")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(isCreatingWeapon ? Color.accentColor : Color.gray)
-                        .cornerRadius(15)
                 }
                 
-                Button {
+                CustomButton(text: "Armor", size: .medium, style: isCreatingArmor ? .active : .inactive) {
                     isCreatingItem = false
                     isCreatingWeapon = false
                     isCreatingArmor = true
-                } label: {
-                    Text("Armor")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(isCreatingArmor ? Color.accentColor : Color.gray)
-                        .cornerRadius(15)
                 }
             }
             .padding()
@@ -197,55 +179,31 @@ struct CreateItemView: View {
             .padding(.horizontal)
             
             HStack {
-                Button {
+                CustomButton(text: "Cancel", size: .medium, style: .cancel) {
                     presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Cancel")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.red)
-                        .cornerRadius(15)
                 }
                 
                 if isCreatingItem {
-                    Button {
+                    CustomButton(text: "Create", size: .medium, style: .active) {
                         warbandVM.createItem(name: newItemName, rules: newItemRules, placement: placement, warband: warband, hero: hero, follower: follower)
                         resetValues()
                         presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Create")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.accentColor)
-                            .cornerRadius(15)
                     }
                 }
                 
                 if isCreatingWeapon {
-                    Button {
+                    CustomButton(text: "Create", size: .medium, style: .active) {
                         warbandVM.createWeapon(name: newItemName, type: weaponType, range: range, overcomeArmor: overcomeArmor, overcomeToughness: overcomeTough, rules: newItemRules, placement: placement, warband: warband, hero: hero, follower: follower)
                         resetValues()
                         presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Create")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.accentColor)
-                            .cornerRadius(15)
                     }
                 }
                 
                 if isCreatingArmor {
-                    Button {
+                    CustomButton(text: "Create", size: .medium, style: .active) {
                         warbandVM.createArmor(name: newItemName, rating: armorRatihg, rules: newItemRules, placement: placement, warband: warband, hero: hero, follower: follower)
                         resetValues()
                         presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Create")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.accentColor)
-                            .cornerRadius(15)
                     }
                 }
             }

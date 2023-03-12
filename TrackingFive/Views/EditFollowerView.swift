@@ -104,15 +104,9 @@ struct EditFollowerView: View {
             }
             .padding(.horizontal)
             
-            Button {
+            CustomButton(text: "Update Follower", size: .medium, style: .active) {
                 warbandVM.updateFollower(follower: follower, name: name, agility: agility, speed: speed, dash: dash, combat: combat, toughness: toughness, luck: luck, will: will)
                 isEditing.toggle()
-            } label: {
-                Text("Update Follower")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .cornerRadius(15)
             }
             .padding()
             

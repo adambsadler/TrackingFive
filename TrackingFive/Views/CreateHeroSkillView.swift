@@ -38,15 +38,9 @@ struct CreateHeroSkillView: View {
             }
             .padding(.horizontal)
             
-            Button {
+            CustomButton(text: "Add Skill to Hero", size: .medium, style: .active) {
                 warbandVM.addSkillToHero(hero: hero, name: newSkillName, rules: newSkillRules)
                 presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Add Skill to Hero")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .cornerRadius(15)
             }
             .padding(.vertical)
             

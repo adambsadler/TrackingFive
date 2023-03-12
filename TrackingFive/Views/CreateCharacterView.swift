@@ -154,27 +154,14 @@ struct CreateCharacterView: View {
             }
             .padding(.horizontal)
             
-            
             HStack {
-                Button {
+                CustomButton(text: "Cancel", size: .medium, style: .cancel) {
                     presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Cancel")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.red)
-                        .cornerRadius(15)
                 }
                 
-                Button {
+                CustomButton(text: "Create", size: .medium, style: .active) {
                     warbandVM.createCharacter(warband: warband, type: characterType, name: newCharacterName, origin: origin, agility: agility, speed: speed, dash: dash, combat: combat, toughness: toughness, luck: luck, will: will, casting: casting)
                     presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Create")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.accentColor)
-                        .cornerRadius(15)
                 }
             }
             .padding(.horizontal)

@@ -136,15 +136,9 @@ struct EditHeroView: View {
             }
             .padding(.horizontal)
             
-            Button {
+            CustomButton(text: "Update Hero", size: .medium, style: .active) {
                 warbandVM.updateHero(hero: hero, name: name, origin: origin, agility: agility, speed: speed, dash: dash, combat: combat, toughness: toughness, luck: luck, will: will, casting: casting, experience: experience)
                 isEditing.toggle()
-            } label: {
-                Text("Update Hero")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .cornerRadius(15)
             }
             .padding()
             

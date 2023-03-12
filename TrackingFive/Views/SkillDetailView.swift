@@ -34,15 +34,9 @@ struct SkillDetailView: View {
                 }
                 .padding()
                 
-                Button {
+                CustomButton(text: "Delete Skill", size: .medium, style: .cancel) {
                     warbandVM.deleteSkill(skill: skill)
                     presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Delete Skill")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.red)
-                        .cornerRadius(15)
                 }
                 .padding()
             }

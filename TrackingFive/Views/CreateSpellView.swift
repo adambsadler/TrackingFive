@@ -51,15 +51,9 @@ struct CreateSpellView: View {
             }
             .padding(.horizontal)
             
-            Button {
+            CustomButton(text: "Add Spell to Hero", size: .medium, style: .active) {
                 warbandVM.addSpellToHero(hero: hero, incantation: spellIncantation, name: newSpellName, rules: newSpellRules)
                 presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Add Spell to Hero")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .cornerRadius(15)
             }
             .padding(.vertical)
             

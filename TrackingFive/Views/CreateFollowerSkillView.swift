@@ -38,15 +38,9 @@ struct CreateFollowerSkillView: View {
             }
             .padding(.horizontal)
             
-            Button {
+            CustomButton(text: "Add Skill to Follower", size: .medium, style: .active) {
                 warbandVM.addSkillToFollower(follower: follower, name: newSkillName, rules: newSkillRules)
                 presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Add Skill to Follower")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .cornerRadius(15)
             }
             .padding()
             

@@ -50,7 +50,7 @@ struct EditWarbandDetailsView: View {
                             .keyboardType(.numberPad)
                     }
                 }
-                Section(footer: Button {
+                Section(footer: CustomButton(text: "Update Warband", size: .medium, style: .active, action: {
                     warband.name = warbandName
                     warband.region = region
                     warband.currentLocation = currentLocation
@@ -59,15 +59,8 @@ struct EditWarbandDetailsView: View {
                     warband.goldMarks = goldMarks
                     warbandVM.saveData()
                     presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Update Warband")
-                        .font(.body)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.accentColor)
-                        .cornerRadius(15)
-                        .frame(maxWidth: .infinity)
-                }){
+                }).frame(maxWidth: .infinity)
+                    ){
                     EmptyView()
                 }
             }
