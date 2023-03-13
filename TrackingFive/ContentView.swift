@@ -18,7 +18,7 @@ struct ContentView: View {
             VStack(spacing: 50) {
                 Spacer()
                 
-                HeaderView(size: .large, text: "Tracking Five", widthPercentage: warbandVM.isUsingIpad() ? 0.6 : 0.75, height: 60)
+                HeaderView(size: .large, text: "Tracking Five", widthPercentage: 0.75, height: 60)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
@@ -32,7 +32,7 @@ struct ContentView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .cornerRadius(15)
-                                .frame(maxWidth: warbandVM.isUsingIpad() ? 600 : 250)
+                                .frame(maxWidth: 250)
                                 .shadow(radius: 15)
                                 .padding()
                                 .padding(.leading)
@@ -46,7 +46,7 @@ struct ContentView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .cornerRadius(15)
-                                .frame(maxWidth: warbandVM.isUsingIpad() ? 600 : 250)
+                                .frame(maxWidth: 250)
                                 .shadow(radius: 15)
                                 .padding()
                                 .padding(.trailing)
@@ -58,7 +58,7 @@ struct ContentView: View {
                     }
                 }
                 
-                HeaderView(size: .largeFlipped, text: "Choose a Game", widthPercentage: warbandVM.isUsingIpad() ? 0.6 : 0.75, height: 60)
+                HeaderView(size: .largeFlipped, text: "Choose a Game", widthPercentage: 0.75, height: 60)
                 
                 
                 Spacer()

@@ -104,7 +104,6 @@ struct WarbandDetailView: View {
                 }
             }
         }
-        .padding(.trailing, warbandVM.isUsingIpad() ? 350 : 0)
         .navigationTitle(warband.name ?? "New Warband")
         .onAppear {
             warbandVM.loadWarbandData(warband: warband)
