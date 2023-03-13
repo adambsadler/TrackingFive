@@ -28,118 +28,74 @@ struct CreateCharacterView: View {
             HeaderView(size: .medium, text: "Create Character", widthPercentage: 0.5, height: 40)
                 .padding(.top)
             
-            Group {
-                HStack {
-                    Text("Character Type: ")
-                        .fontWeight(.bold)
-                    Picker("Select character type", selection: $characterType) {
-                        ForEach(CharacterType.allCases, id: \.self) { value in
-                            Text(value.localizedName)
-                                .tag(value)
-                        }
-                    }
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Name: ")
-                        .fontWeight(.bold)
-                    TextField("\(characterType.rawValue) Name", text: $newCharacterName)
-                        .disableAutocorrection(true)
-                }
-                .padding(.horizontal)
-                
-                if characterType == .hero {
+            ScrollView {
+                Group {
                     HStack {
-                        Text("Origin: ")
+                        Text("Character Type: ")
                             .fontWeight(.bold)
-                        TextField("Hero Origin", text: $origin)
+                        Picker("Select character type", selection: $characterType) {
+                            ForEach(CharacterType.allCases, id: \.self) { value in
+                                Text(value.localizedName)
+                                    .tag(value)
+                            }
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Name: ")
+                            .fontWeight(.bold)
+                        TextField("\(characterType.rawValue) Name", text: $newCharacterName)
                             .disableAutocorrection(true)
                     }
                     .padding(.horizontal)
-                }
-                
-                HStack {
-                    Text("Agility: ")
-                        .fontWeight(.bold)
-                    Picker("Agility", selection: $agility) {
-                        ForEach(0 ..< 5) {
-                            Text("\($0)")
+                    
+                    if characterType == .hero {
+                        HStack {
+                            Text("Origin: ")
+                                .fontWeight(.bold)
+                            TextField("Hero Origin", text: $origin)
+                                .disableAutocorrection(true)
                         }
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Speed: ")
-                        .fontWeight(.bold)
-                    Picker("Speed", selection: $speed) {
-                        ForEach(0 ..< 8) {
-                            Text("\($0)")
-                        }
-                    }
-                    Text("/ +")
-                    Picker("Dash", selection: $dash) {
-                        ForEach(0 ..< 5) {
-                            Text("\($0)")
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Combat: ")
-                        .fontWeight(.bold)
-                    Picker("Combat", selection: $combat) {
-                        ForEach(0 ..< 4) {
-                            Text("\($0)")
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Toughness: ")
-                        .fontWeight(.bold)
-                    Picker("Toughness", selection: $toughness) {
-                        ForEach(0 ..< 7) {
-                            Text("\($0)")
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Luck: ")
-                        .fontWeight(.bold)
-                    Picker("Luck", selection: $luck) {
-                        ForEach(0 ..< 7) {
-                            Text("\($0)")
-                        }
+                        .padding(.horizontal)
                     }
                     
-                    Text("Will: ")
-                        .fontWeight(.bold)
-                    Picker("Will", selection: $will) {
-                        ForEach(0 ..< 7) {
-                            Text("\($0)")
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                if characterType == .hero {
                     HStack {
-                        Text("Casting: ")
+                        Text("Agility: ")
                             .fontWeight(.bold)
-                        Picker("Casting", selection: $casting) {
+                        Picker("Agility", selection: $agility) {
+                            ForEach(0 ..< 5) {
+                                Text("\($0)")
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Speed: ")
+                            .fontWeight(.bold)
+                        Picker("Speed", selection: $speed) {
+                            ForEach(0 ..< 8) {
+                                Text("\($0)")
+                            }
+                        }
+                        Text("/ +")
+                        Picker("Dash", selection: $dash) {
+                            ForEach(0 ..< 5) {
+                                Text("\($0)")
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Combat: ")
+                            .fontWeight(.bold)
+                        Picker("Combat", selection: $combat) {
                             ForEach(0 ..< 4) {
                                 Text("\($0)")
                             }
@@ -147,26 +103,71 @@ struct CreateCharacterView: View {
                         Spacer()
                     }
                     .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Toughness: ")
+                            .fontWeight(.bold)
+                        Picker("Toughness", selection: $toughness) {
+                            ForEach(0 ..< 7) {
+                                Text("\($0)")
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    HStack {
+                        Text("Luck: ")
+                            .fontWeight(.bold)
+                        Picker("Luck", selection: $luck) {
+                            ForEach(0 ..< 7) {
+                                Text("\($0)")
+                            }
+                        }
+                        
+                        Text("Will: ")
+                            .fontWeight(.bold)
+                        Picker("Will", selection: $will) {
+                            ForEach(0 ..< 7) {
+                                Text("\($0)")
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    if characterType == .hero {
+                        HStack {
+                            Text("Casting: ")
+                                .fontWeight(.bold)
+                            Picker("Casting", selection: $casting) {
+                                ForEach(0 ..< 4) {
+                                    Text("\($0)")
+                                }
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                    }
+                    
+                    Text("**Note:** You can add skills, spells, and/or equipment to this character after creation")
+                        .padding()
                 }
                 
-                Text("**Note:** You can add skills, spells, and/or equipment to this character after creation")
-                    .padding()
+                HStack {
+                    CustomButton(text: "Cancel", size: .medium, style: .cancel) {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    
+                    CustomButton(text: "Create", size: .medium, style: .active) {
+                        warbandVM.createCharacter(warband: warband, type: characterType, name: newCharacterName, origin: origin, agility: agility, speed: speed, dash: dash, combat: combat, toughness: toughness, luck: luck, will: will, casting: casting)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+                
             }
             .padding(.horizontal)
             
-            HStack {
-                CustomButton(text: "Cancel", size: .medium, style: .cancel) {
-                    presentationMode.wrappedValue.dismiss()
-                }
-                
-                CustomButton(text: "Create", size: .medium, style: .active) {
-                    warbandVM.createCharacter(warband: warband, type: characterType, name: newCharacterName, origin: origin, agility: agility, speed: speed, dash: dash, combat: combat, toughness: toughness, luck: luck, will: will, casting: casting)
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-            .padding(.horizontal)
-            
-            Spacer()
         }
     }
 }
