@@ -33,7 +33,7 @@ struct CreateSpellView: View {
                     Text("Incantation: ")
                         .fontWeight(.bold)
                     Picker("Incantation", selection: $spellIncantation) {
-                        ForEach(5 ..< 9) {
+                        ForEach(5 ..< 9, id: \.self) {
                             Text("\($0) +")
                         }
                     }

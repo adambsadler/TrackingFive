@@ -18,6 +18,9 @@ struct ArmorDetailView: View {
     @State var isMovingToFollower: Bool = false
     @State var readyToConfirm: Bool = false
     @State var movingTo: NewItemPlacement = .backpack
+    @State var isEditingArmor: Bool = false
+    @State var armorRating: Int = 0
+    @State var armorRules: String = ""
     var movingFrom: NewItemPlacement
     var fromHero: Hero? = nil
     var fromFollower: Follower? = nil
@@ -25,10 +28,42 @@ struct ArmorDetailView: View {
     @State var heroToGetArmor: Hero? = nil
     @State var followerToGetArmor: Follower? = nil
     
+    func setValues() {
+        armorRating = Int(armor.rating)
+        armorRules = armor.rules ?? ""
+    }
+    
     var body: some View {
         VStack {
-            HeaderView(size: .medium, text: "Armor Details", widthPercentage: 0.5, height: 40)
-                .padding(.vertical)
+            ZStack {
+                HeaderView(size: .medium, text: "Armor Details", widthPercentage: 0.5, height: 40)
+                    .padding(.vertical)
+                
+                HStack {
+                    Spacer()
+                    if isEditingArmor {
+                        Button {
+                            setValues()
+                            isEditingArmor.toggle()
+                        } label: {
+                            Image(systemName: "x.circle.fill")
+                                .foregroundColor(.red)
+                                .padding(.trailing, 10)
+                        }
+                    }
+                    Button {
+                        if isEditingArmor {
+                            warbandVM.updateArmor(armor: armor, rating: armorRating, rules: armorRules)
+                        }
+                        
+                        isEditingArmor.toggle()
+                    } label: {
+                        Image(systemName: isEditingArmor ? "checkmark.circle.fill" : "square.and.pencil")
+                            .padding(.trailing)
+                            .foregroundColor(Color("LightGreen"))
+                    }
+                }
+            }
             
             ScrollView {
                 HStack {
@@ -39,33 +74,58 @@ struct ArmorDetailView: View {
                 }
                 .padding()
                 
-                HStack {
-                    Text("Armor Rating: ")
-                        .fontWeight(.bold)
-                    Text("\(armor.rating)")
-                    Spacer()
-                }
-                .padding()
-                
-                HStack {
-                    Text("Rules: ")
-                        .fontWeight(.bold)
-                    Text(armor.rules ?? "No special rules")
-                    Spacer()
-                }
-                .padding()
-                
-                HStack {
-                    CustomButton(text: "Delete Armor", size: .medium, style: .cancel) {
-                        warbandVM.deleteArmor(armor: armor)
-                        presentationMode.wrappedValue.dismiss()
+                if isEditingArmor {
+                    HStack {
+                        Text("Armor Rating: ")
+                            .fontWeight(.bold)
+                        Picker("Score", selection: $armorRating) {
+                            ForEach(0 ..< 4, id: \.self) {
+                                Text("\($0)")
+                            }
+                        }
+                        Spacer()
                     }
+                    .padding(.horizontal)
                     
-                    CustomButton(text: isMovingArmor ? "Move to..." : "Move Armor", size: .medium, style: isMovingArmor ? .inactive : .active) {
-                        isMovingArmor.toggle()
+                    HStack {
+                        Text("Rules: ")
+                            .fontWeight(.bold)
+                        TextField("Armor Rules", text: $armorRules)
+                            .disableAutocorrection(true)
                     }
+                    .padding()
+                } else {
+                    HStack {
+                        Text("Armor Rating: ")
+                            .fontWeight(.bold)
+                        Text("\(armor.rating)")
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    HStack {
+                        Text("Rules: ")
+                            .fontWeight(.bold)
+                        Text(armor.rules ?? "No special rules")
+                        Spacer()
+                    }
+                    .padding()
                 }
-                .padding(.top)
+                
+                
+                if !isEditingArmor {
+                    HStack {
+                        CustomButton(text: "Delete Armor", size: .medium, style: .cancel) {
+                            warbandVM.deleteArmor(armor: armor)
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        
+                        CustomButton(text: isMovingArmor ? "Move to..." : "Move Armor", size: .medium, style: isMovingArmor ? .inactive : .active) {
+                            isMovingArmor.toggle()
+                        }
+                    }
+                    .padding(.top)
+                }
              
                 if isMovingArmor {
                     HStack {
@@ -153,6 +213,9 @@ struct ArmorDetailView: View {
                 
             }
             .padding(.horizontal)
+        }
+        .onAppear {
+            setValues()
         }
     }
 }

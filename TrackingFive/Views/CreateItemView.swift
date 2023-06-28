@@ -117,7 +117,7 @@ struct CreateItemView: View {
                         Text("Overcome Armor: ")
                             .fontWeight(.bold)
                         Picker("Score", selection: $overcomeArmor) {
-                            ForEach(-1 ..< 4) {
+                            ForEach(-1 ..< 4, id: \.self) {
                                 Text("\($0)")
                             }
                         }
@@ -129,7 +129,7 @@ struct CreateItemView: View {
                         Text("Overcome Toughness: ")
                             .fontWeight(.bold)
                         Picker("Score", selection: $overcomeTough) {
-                            ForEach(-1 ..< 4) {
+                            ForEach(-1 ..< 4, id: \.self) {
                                 Text("\($0)")
                             }
                         }
@@ -159,7 +159,7 @@ struct CreateItemView: View {
                         Text("Armor Rating: ")
                             .fontWeight(.bold)
                         Picker("Score", selection: $armorRatihg) {
-                            ForEach(0 ..< 4) {
+                            ForEach(0 ..< 4, id: \.self) {
                                 Text("\($0)")
                             }
                         }
