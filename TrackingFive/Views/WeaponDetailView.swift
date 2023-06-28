@@ -18,6 +18,11 @@ struct WeaponDetailView: View {
     @State var isMovingToFollower: Bool = false
     @State var readyToConfirm: Bool = false
     @State var movingTo: NewItemPlacement = .backpack
+    @State var isEditingWeapon: Bool = false
+    @State var overcomeArmor: Int = 0
+    @State var overcomeTough: Int = 0
+    @State var range: Int = 0
+    @State var weaponRules: String = ""
     var movingFrom: NewItemPlacement
     var fromHero: Hero? = nil
     var fromFollower: Follower? = nil
@@ -25,10 +30,47 @@ struct WeaponDetailView: View {
     @State var heroToGetWeapon: Hero? = nil
     @State var followerToGetWeapon: Follower? = nil
     
+    func setValues() {
+        overcomeTough = Int(weapon.overcomeToughness)
+        overcomeArmor = Int(weapon.overcomeArmor)
+        weaponRules = weapon.rules ?? ""
+        if weapon.type == WeaponType.ranged.rawValue {
+            range = Int(weapon.range)
+        }
+    }
+    
     var body: some View {
         VStack {
-            HeaderView(size: .medium, text: "Weapon Details", widthPercentage: 0.5, height: 40)
-                .padding(.vertical)
+            ZStack {
+                HeaderView(size: .medium, text: "Weapon Details", widthPercentage: 0.5, height: 40)
+                    .padding(.vertical)
+                
+                HStack {
+                    Spacer()
+                    if isEditingWeapon {
+                        Button {
+                            setValues()
+                            isEditingWeapon.toggle()
+                        } label: {
+                            Image(systemName: "x.circle.fill")
+                                .foregroundColor(.red)
+                                .padding(.trailing, 10)
+                        }
+                    }
+                    Button {
+                        if isEditingWeapon {
+                            warbandVM.updateWeapon(weapon: weapon, range: range, overcomeArmor: overcomeArmor, overcomeToughness: overcomeTough, rules: weaponRules)
+                        }
+                        
+                        isEditingWeapon.toggle()
+                    } label: {
+                        Image(systemName: isEditingWeapon ? "checkmark.circle.fill" : "square.and.pencil")
+                            .padding(.trailing)
+                            .foregroundColor(Color("LightGreen"))
+                    }
+                }
+            }
+            
             
             ScrollView {
                 Group {
@@ -49,51 +91,97 @@ struct WeaponDetailView: View {
                     .padding()
                     
                     if weapon.type == WeaponType.ranged.rawValue {
+                        if isEditingWeapon {
+                            HStack {
+                                Text("Range: ")
+                                    .fontWeight(.bold)
+                                TextField("Weapon Range", value: $range, formatter: NumberFormatter())
+                                    .keyboardType(.numberPad)
+                            }
+                            .padding()
+                        } else {
+                            HStack {
+                                Text("Range: ")
+                                    .fontWeight(.bold)
+                                Text("\(weapon.range)")
+                                Spacer()
+                            }
+                            .padding()
+                        }
+                    }
+                    
+                    if isEditingWeapon {
                         HStack {
-                            Text("Range: ")
+                            Text("Overcome Armor: ")
                                 .fontWeight(.bold)
-                            Text("\(weapon.range)")
+                            Picker("Score", selection: $overcomeArmor) {
+                                ForEach(-1 ..< 4, id: \.self) {
+                                    Text("\($0)")
+                                }
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        
+                        HStack {
+                            Text("Overcome Toughness: ")
+                                .fontWeight(.bold)
+                            Picker("Score", selection: $overcomeTough) {
+                                ForEach(-1 ..< 4, id: \.self) {
+                                    Text("\($0)")
+                                }
+                            }
+                            Spacer()
+                        }
+                        .padding()
+
+                        HStack {
+                            Text("Rules: ")
+                                .fontWeight(.bold)
+                            TextField("Weapon Rules", text: $weaponRules)
+                                .disableAutocorrection(true)
+                        }
+                        .padding()
+                    } else {
+                        HStack {
+                            Text("Overcome Armor: ")
+                                .fontWeight(.bold)
+                            Text("\(weapon.overcomeArmor)")
+                            Spacer()
+                        }
+                        .padding()
+                        
+                        HStack {
+                            Text("Overcome Toughness: ")
+                                .fontWeight(.bold)
+                            Text("\(weapon.overcomeToughness)")
+                            Spacer()
+                        }
+                        .padding()
+                        
+                        HStack {
+                            Text("Rules: ")
+                                .fontWeight(.bold)
+                            Text(weapon.rules ?? "No special rules")
                             Spacer()
                         }
                         .padding()
                     }
-                    
-                    HStack {
-                        Text("Overcome Armor: ")
-                            .fontWeight(.bold)
-                        Text("\(weapon.overcomeArmor)")
-                        Spacer()
-                    }
-                    .padding()
-                    
-                    HStack {
-                        Text("Overcome Toughness: ")
-                            .fontWeight(.bold)
-                        Text("\(weapon.overcomeToughness)")
-                        Spacer()
-                    }
-                    .padding()
-                    
-                    HStack {
-                        Text("Rules: ")
-                            .fontWeight(.bold)
-                        Text(weapon.rules ?? "No special rules")
-                        Spacer()
-                    }
-                    .padding()
                 }
                 
-                HStack {
-                    CustomButton(text: "Delete Weapon", size: .medium, style: .cancel) {
-                        warbandVM.deleteWeapon(weapon: weapon)
-                        presentationMode.wrappedValue.dismiss()
+                if !isEditingWeapon {
+                    HStack {
+                        CustomButton(text: "Delete Weapon", size: .medium, style: .cancel) {
+                            warbandVM.deleteWeapon(weapon: weapon)
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        
+                        CustomButton(text: isMovingWeapon ? "Move to..." : "Move Weapon", size: .medium, style: isMovingWeapon ? .inactive : .active) {
+                            isMovingWeapon.toggle()
+                        }
                     }
-                    
-                    CustomButton(text: isMovingWeapon ? "Move to..." : "Move Weapon", size: .medium, style: isMovingWeapon ? .inactive : .active) {
-                        isMovingWeapon.toggle()
-                    }
+                    .padding(.top)
                 }
-                .padding(.top)
              
                 if isMovingWeapon {
                     HStack {
@@ -181,6 +269,9 @@ struct WeaponDetailView: View {
                 
             }
             .padding(.horizontal)
+        }
+        .onAppear {
+            setValues()
         }
     }
 }

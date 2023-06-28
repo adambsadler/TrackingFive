@@ -464,6 +464,15 @@ class WarbandViewModel: ObservableObject {
         saveData()
     }
     
+    func updateWeapon(weapon: Weapon, range: Int, overcomeArmor: Int, overcomeToughness: Int, rules: String) {
+        weapon.range = Int64(range)
+        weapon.overcomeArmor = Int64(overcomeArmor)
+        weapon.overcomeToughness = Int64(overcomeToughness)
+        weapon.rules = rules
+        
+        saveData()
+    }
+    
     func addWeaponToStash(weapon: Weapon, warband: Warband) {
         stashedWeapons.append(weapon)
         warband.addToStashedWeapons(weapon)
@@ -590,6 +599,13 @@ class WarbandViewModel: ObservableObject {
                 print("Unable to add new armor to follower because there was no follower passed into \(#function)")
             }
         }
+        
+        saveData()
+    }
+    
+    func updateArmor(armor: Armor, rating: Int, rules: String) {
+        armor.rating = Int64(rating)
+        armor.rules = rules
         
         saveData()
     }
