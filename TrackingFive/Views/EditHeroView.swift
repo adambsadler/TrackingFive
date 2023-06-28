@@ -45,7 +45,7 @@ struct EditHeroView: View {
                 Text("Agility: ")
                     .fontWeight(.bold)
                 Picker("Agility", selection: $agility) {
-                    ForEach(0 ..< 5) {
+                    ForEach(0 ..< 5, id: \.self) {
                         Text("\($0)")
                     }
                 }
@@ -57,13 +57,13 @@ struct EditHeroView: View {
                 Text("Speed: ")
                     .fontWeight(.bold)
                 Picker("Speed", selection: $speed) {
-                    ForEach(0 ..< 8) {
+                    ForEach(0 ..< 8, id: \.self) {
                         Text("\($0)")
                     }
                 }
                 Text("/ +")
                 Picker("Dash", selection: $dash) {
-                    ForEach(0 ..< 5) {
+                    ForEach(0 ..< 5, id: \.self) {
                         Text("\($0)")
                     }
                 }
@@ -75,7 +75,7 @@ struct EditHeroView: View {
                 Text("Combat: ")
                     .fontWeight(.bold)
                 Picker("Combat", selection: $combat) {
-                    ForEach(0 ..< 4) {
+                    ForEach(0 ..< 4, id: \.self) {
                         Text("\($0)")
                     }
                 }
@@ -87,7 +87,7 @@ struct EditHeroView: View {
                 Text("Toughness: ")
                     .fontWeight(.bold)
                 Picker("Toughness", selection: $toughness) {
-                    ForEach(0 ..< 7) {
+                    ForEach(0 ..< 7, id: \.self) {
                         Text("\($0)")
                     }
                 }
@@ -99,7 +99,7 @@ struct EditHeroView: View {
                 Text("Luck: ")
                     .fontWeight(.bold)
                 Picker("Luck", selection: $luck) {
-                    ForEach(0 ..< 7) {
+                    ForEach(0 ..< 7, id: \.self) {
                         Text("\($0)")
                     }
                 }
@@ -107,7 +107,7 @@ struct EditHeroView: View {
                 Text("Will: ")
                     .fontWeight(.bold)
                 Picker("Will", selection: $will) {
-                    ForEach(0 ..< 7) {
+                    ForEach(0 ..< 7, id: \.self) {
                         Text("\($0)")
                     }
                 }
@@ -119,7 +119,7 @@ struct EditHeroView: View {
                 Text("Casting: ")
                     .fontWeight(.bold)
                 Picker("Casting", selection: $casting) {
-                    ForEach(0 ..< 4) {
+                    ForEach(0 ..< 4, id: \.self) {
                         Text("\($0)")
                     }
                 }

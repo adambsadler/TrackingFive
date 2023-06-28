@@ -28,24 +28,20 @@ struct CharactersView: View {
             }
             
             ForEach(warbandVM.heroes, id: \.self) { hero in
-                if let currentHero = hero {
-                    NavigationLink {
-                        HeroDetailView(warbandVM: warbandVM, warband: warband, hero: hero)
-                    } label: {
-                        CharacterListView(name: currentHero.name ?? "Unknown", type: .hero, agility: Int(currentHero.agility), speed: Int(currentHero.speed), dash: Int(currentHero.dashSpeed), combat: Int(currentHero.combatSkill), toughness: Int(currentHero.toughness))
-                            .padding(.horizontal)
-                    }
+                NavigationLink {
+                    HeroDetailView(warbandVM: warbandVM, warband: warband, hero: hero)
+                } label: {
+                    CharacterListView(name: hero.name ?? "Unknown", type: .hero, agility: Int(hero.agility), speed: Int(hero.speed), dash: Int(hero.dashSpeed), combat: Int(hero.combatSkill), toughness: Int(hero.toughness))
+                        .padding(.horizontal)
                 }
             }
             
             ForEach(warbandVM.followers, id: \.self) { follower in
-                if let currentFollower = follower {
-                    NavigationLink {
-                        FollowerDetailView(warbandVM: warbandVM, warband: warband, follower: follower)
-                    } label: {
-                        CharacterListView(name: currentFollower.name ?? "Unknown", type: .follower, agility: Int(currentFollower.agility), speed: Int(currentFollower.speed), dash: Int(currentFollower.dashSpeed), combat: Int(currentFollower.combatSkill), toughness: Int(currentFollower.toughness))
-                            .padding(.horizontal)
-                    }
+                NavigationLink {
+                    FollowerDetailView(warbandVM: warbandVM, warband: warband, follower: follower)
+                } label: {
+                    CharacterListView(name: follower.name ?? "Unknown", type: .follower, agility: Int(follower.agility), speed: Int(follower.speed), dash: Int(follower.dashSpeed), combat: Int(follower.combatSkill), toughness: Int(follower.toughness))
+                        .padding(.horizontal)
                 }
             }
             
